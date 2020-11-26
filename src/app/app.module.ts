@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { DasboardComponent } from './dasboard/dasboard.component';
 import { DatePipe } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,9 @@ import { DatePipe } from '@angular/common';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
+    
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

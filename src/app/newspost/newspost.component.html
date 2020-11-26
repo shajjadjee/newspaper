@@ -1,85 +1,96 @@
-
 <div class="container">
-    <div class="row">
-         <!--start: create post -->
-        <div style="width: 100%;" [hidden]="">
-            <div class="col-md-6">
-                <h1 class="h1 mb-3 mt-5"></h1>
-                <form>
-    
-                    <div class="form-group">
-                        <label for="name">Title</label>
-                        <input  type="text" class="form-control" name="title" id="title">
-                    </div>
-    
-                    <div class="form-group">
-                        <label for="postarea">postarea</label>
-                        <input  type="textarea" class="form-control" name="postarea" id="postarea">
-                    </div>
-    
-                    <div class="form-group">
-                        <label for="image">Image</label>
-                        <input  type="file" class="form-control" name="image" id="image">
-                    </div>
-                    <button class="btn btn-primary float-right" type="submit">Save</button>
-                </form>
-            </div> 
-        </div>  
-         <!--end: create post -->
-        <!--start: update post -->
-        <div [hidden]="">
-            <div class="col-md-6">
-                <h1 class="h1 mb-3 mt-5"></h1>
-                <form>
-    
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input  type="text" class="form-control" name="name" id="name">
-                    </div>
-    
-                    <div class="form-group">
-                        <label for="postarea">postarea</label>
-                        <input type="text" class="form-control" name="postarea" id="postarea">
-                    </div>
-    
-                    <div class="form-group">
-                        <label for="image">Image</label>
-                        <input  type="file" class="form-control" name="image" id="image">
-                    </div>
-                    <button class="btn btn-primary float-right" type="submit">Update</button>
-                </form>
-            </div> 
-        </div>       
-        <!--end: update post -->        
+  <div class="row">
+    <!--start: create post -->
+    <div style="width: 100%" [hidden]="">
+      <div class="col-sm-6">
+        <h1 class="h1 mb-3 mt-5"></h1>
+        <form>
+          <div class="form-group">
+            <label for="name">Title</label>
+            <input type="text" class="form-control" name="title" id="title" />
+          </div>
+
+          <div class="form-group">
+            <label for="postarea">Description</label>
+            <textarea
+              class="form-control"
+              name="postarea"
+              id="postarea"
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="image">Image</label>
+            <input type="file" class="form-control" name="image" id="image" />
+          </div>
+          <button class="btn btn-primary float-right" type="submit">
+            Save
+          </button>
+        </form>
+      </div>
     </div>
-    <div class="row">
-        <div class="col-md-10">
-            <div class="responsive">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let p of ">
-                            <td>{{p.id}}</td>
-                            <td>{{p.name}}</td>
-                            <td>{{p.price}}</td>
-                            <td>{{p.quantity}}</td>
-                            <td>
-                                <a >Edit</a> |
-                                <a >Delete</a>
-                            </td>
-                        </tr>
-                    </tbody>
-                    
-                </table>
-            </div>
-        </div>
+  </div>
+  <!--end: create post -->
+  <!--start: update post -->
+  <div class="row">
+    <div [hidden]="">
+      <div class="col-sm-10">
+        <h1 class="h1 mb-3 mt-5"></h1>
+        <form>
+          <div class="form-group">
+            <label for="name">Title</label>
+            <input type="text" class="form-control" name="name" id="name" />
+          </div>
+
+          <div class="form-group">
+            <label for="postarea">Description</label>
+            <textarea
+            class="form-control"
+            name="postarea"
+            id="postarea"
+          ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="image">Image</label>
+            <input type="file" class="form-control" name="image" id="image" />
+          </div>
+          <button class="btn btn-primary float-right" type="submit">
+            Update
+          </button>
+        </form>
+      </div>
     </div>
+  </div>
+  <!--end: update post -->
+
+  <div class="row">
+    <div class="col-md-10">
+      <div class="responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>TITLE</th>
+              <th>DESCRIPTION</th>
+              <th>IMAGE</th>
+              <th>ACTION</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let p; of">
+              <td>{{ p.id }}</td>
+              <td>{{ p.title }}</td>
+              <td>{{ p.description }}</td>
+              <td>{{ p.image }}</td>
+              <td>
+                <a>Edit</a> |
+                <a>Delete</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>
