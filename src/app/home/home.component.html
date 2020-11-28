@@ -86,12 +86,11 @@
       TopNews:
     </div>
     <div class="col-sm-10">
-      <marquee>
-        <p style="font-family: Impact; font-size: 18pt">
-          Welcome to NewsPaper | Welcome to NewsPaper | Welcome to NewsPaper|
-          Welcome to NewsPaper | Welcome to NewsPaper
-        </p></marquee
-      >
+      <marquee flexbox>
+        <p *ngFor="let item of postArr.slice(0, 10)" style="font-family: Impact; font-size: 18pt">
+        {{ item.pname }} </p>
+        
+        </marquee>
     </div>
   </div>
   <div class="row">
@@ -141,16 +140,38 @@
         </a>
       </div>
     </div>
+    
     <div class="col-sm-3" *ngFor="let item of postArr">
-        <img class="img-fluid" src="{{ item.image }}" />
-        <h4 class="">{{ item.pname }}</h4>
+      
+      <div class="images_title">
+      <img class="img-fluid" src="{{ item.image }}" width="400" height="225"/>
+      <h4 class="heading_03">  {{ item.pname }} </h4>
+      </div> 
+
+
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-3"></div>
-    <div class="col-sm-3"></div>
-    <div class="col-sm-3"></div>
-    <div class="col-sm-3"></div>
+    <div class="col-sm-3">
+      <div *ngFor="let item of postArr"> 
+        <img class="img-fluid" src="{{ item.image }}" />
+        <h4 class="">{{ item.pname }}</h4>
+    </div></div>
+    <div class="col-sm-3">
+      <div *ngFor="let item of postArr"> 
+        <img class="img-fluid" src="{{ item.image }}" />
+        <h4 class="">{{ item.pname }}</h4>
+    </div></div>
+    <div class="col-sm-3">
+      <div *ngFor="let item of postArr"> 
+        <img class="img-fluid" src="{{ item.image }}" />
+        <h4 class="">{{ item.pname }}</h4>
+    </div></div>
+    <div class="col-sm-3">
+      <div *ngFor="let item of postArr"> 
+        <img class="img-fluid" src="{{ item.image }}" />
+        <h4 class="">{{ item.pname }}</h4>
+    </div></div>
   </div>
   
 </div>

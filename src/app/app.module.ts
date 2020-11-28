@@ -11,7 +11,8 @@ import { SignupComponent } from './signup/signup.component';
 import { DasboardComponent } from './dasboard/dasboard.component';
 import { DatePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
+import { HttpClientModule } from '@angular/common/http';
+import { PipesModule } from 'w-ng5';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,9 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    PipesModule
     
   ],
   providers: [DatePipe],
