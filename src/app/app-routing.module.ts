@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthenticatGuard } from './authenticat.guard';
 import { DasboardComponent } from './dasboard/dasboard.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -9,18 +10,27 @@ import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
   {
-    path: 'login', component: LoginComponent
+    path: '', component: HomeComponent,
   },
   {
     path: 'signup', component: SignupComponent
   },
   {
-    path: '', component: HomeComponent
+    path: 'login', component: LoginComponent
   },
   {
-    path: 'dashboard',
-    component: DasboardComponent,
+    path: 'dashboard', component: DasboardComponent,
+    canActivate: [AuthenticatGuard],
     children: [
+      
+      // {
+      //   path: '',
+      //   component: DasboardComponent
+      // },
+      {
+        path: '**', redirectTo: 'dashboard'
+      },
+
       {
         path: 'post',
         component: NewspostComponent
@@ -29,16 +39,13 @@ const routes: Routes = [
         path: 'user',
         component: UserComponent
       },
-      // {
-      //   path: '**',
-      //   component: DasboardComponent
-      // }
+     
     ],
+
   },
   {
-    path: '**',
-    component: HomeComponent
-  }
+    path: '**', redirectTo: 'login'
+  },
 ];
 
 @NgModule({

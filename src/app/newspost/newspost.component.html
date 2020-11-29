@@ -73,16 +73,25 @@
               <th>ID</th>
               <th>TITLE</th>
               <th>DESCRIPTION</th>
+              <th>DATE</th>
               <th>IMAGE</th>
+              <th>FEATURE</th>
+              <th>CATEGORY ID</th>
+              <th>CATEGORY NAME</th>
               <th>ACTION</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let p; of">
+            <tr *ngFor="let p; of postList">
               <td>{{ p.id }}</td>
-              <td>{{ p.title }}</td>
-              <td>{{ p.description }}</td>
-              <td>{{ p.image }}</td>
+              <td>{{ p.ptitle }}</td>
+              <td>{{ p.pdesc }}</td>
+              <td>{{ p.pdate }}</td>
+              <td>{{ p.fimage }}</td>
+              <td>{{ p.feature }}</td>
+              <td>{{ p.cid }}</td>
+              <td>{{ p.cname }}</td>
+              
               <td>
                 <a>Edit</a> |
                 <a>Delete</a>

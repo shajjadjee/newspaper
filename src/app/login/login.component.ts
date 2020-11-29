@@ -1,6 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { User } from '../model/user.model';
+import { UserService } from '../service/user.service';
 
 @Component({
   selector: 'app-login',
@@ -8,19 +9,12 @@ import { User } from '../model/user.model';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
-  user;
+  user: User = new User(0, '', '', '', '', '', '', 0);
   isSubmit = false;
-  constructor() {
-    this.user = new User('', '', '', '', '', '', '', '');
-  }
-
+  constructor(private us: UserService) {}
   ngOnInit(): void {
   }
-
-  // tslint:disable-next-line:typedef
-  submit() {
-    console.log('file submitted');
-    this.isSubmit = true;
+  login() {
+    this.us.login(this.user);
   }
 }

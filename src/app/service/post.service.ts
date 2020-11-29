@@ -5,5 +5,5 @@ import { Injectable } from '@angular/core';
 })
 export class PostService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 }

@@ -13,6 +13,7 @@ import { DatePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { PipesModule } from 'w-ng5';
+import { UserService } from './service/user.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,7 @@ import { PipesModule } from 'w-ng5';
     PipesModule
     
   ],
-  providers: [DatePipe],
+  providers: [DatePipe,UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
