@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../model/user.model';
 import { UserService } from '../service/user.service';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -11,16 +12,16 @@ import { HttpClient } from '@angular/common/http';
 export class SignupComponent implements OnInit {
 user;
 isSubmit = false;
-  constructor(private http: HttpClient) {
-    this.user = new User(0, '', '', '', '', '', '', '');
+roleList: any = ['admin', 'user']
+  constructor(private http: HttpClient, private router: Router) {
+    this.user = new User(0, '', '', '', '', '', '');
   }
 
   ngOnInit(): void {
   }
-  // submit(): void {
-  //   console.log('file submitted');
-  //   this.isSubmit = true;
-  // }
+  onsubmit() {
+    this.router.navigate(['/dasboard']);
+}
   submit() {
     this.http.post<User>('http://localhost:8080/api/user/save', this.user)
     .subscribe(data => {

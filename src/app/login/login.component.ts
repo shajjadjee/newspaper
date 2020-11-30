@@ -9,7 +9,7 @@ import { UserService } from '../service/user.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  user: User = new User(0, '', '', '', '', '', '', 0);
+  user: User = new User(0, '', '', '', '', '', '');
   isSubmit = false;
   constructor(private us: UserService) {}
   ngOnInit(): void {

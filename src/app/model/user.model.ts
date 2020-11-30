@@ -6,8 +6,8 @@ export class User{
     email;
     mobile;
     role;
-    pid;
-    constructor( id, name, username, password, email, mobile, role,pid){
+    // pid;
+    constructor( id, name, username, password, email, mobile, role){
         this.id = id;
         this.name = name;
         this.username = username;
@@ -16,7 +16,7 @@ export class User{
         this.email = email;
         this.mobile = mobile;
         this.role = role;
-        this.pid = pid;
+        // this.pid = pid;
 
     }
 }

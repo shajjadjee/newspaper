@@ -4,15 +4,15 @@
     <div style="width: 100%" [hidden]="">
       <div class="col-sm-6">
         <h1 class="h1 mb-3 mt-5"></h1>
-        <form>
+        <form #postForm="ngForm" (ngSubmit)="savePost()">
           <div class="form-group">
-            <label for="name">Title</label>
-            <input type="text" class="form-control" name="title" id="title" />
+            <label for="title">Title</label>
+            <input [(ngModel)]="post.ptitle" type="text" class="form-control" name="title" id="title" />
           </div>
 
           <div class="form-group">
             <label for="postarea">Description</label>
-            <textarea
+            <textarea [(ngModel)]="post.pdesc"
               class="form-control"
               name="postarea"
               id="postarea"

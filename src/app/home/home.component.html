@@ -86,8 +86,8 @@
       TopNews:
     </div>
     <div class="col-sm-10">
-      <marquee flexbox>
-        <p *ngFor="let item of postArr.slice(0, 10)" style="font-family: Impact; font-size: 18pt">
+      <marquee class="float-right" style="display: inline;">
+        <p *ngFor="let item of postArr.slice(0, 4)" style="font-family: Impact; font-size: 18pt">
         {{ item.pname }} </p>
         
         </marquee>

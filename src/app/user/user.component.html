@@ -17,7 +17,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let u; of userList">
+                <tr *ngFor="let u of userList">
                   <td>{{ u.id }}</td>
                   <td>{{ u.name }}</td>
                   <td>{{ u.username }}</td>
@@ -27,10 +27,11 @@
                   <td>{{ u.role }}</td>
                   <td>{{ u.pid }}</td>
                   
-                  <td>
-                    <a>Edit</a> |
-                    <a>Delete</a>
+                    <td>
+                      <a (click)="edit(u.id)">Edit</a> |
+                      <a (click)="delete(u.id)">Delete</a>
                   </td>
+                  
                 </tr>
               </tbody>
             </table>

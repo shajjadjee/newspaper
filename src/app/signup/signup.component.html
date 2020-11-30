@@ -1,97 +1,91 @@
 <div class="page-wrapper bg-gra-02 font-poppins" style="padding: 130px 0px 100px 0px;">
-    <div class="wrapper wrapper--w680">
-        <div class="card card-4" [hidden]="isSubmit">
-            <div class="card-body">
-                <h2 class="title">Registration Form</h2>
-                <form #signup="ngForm" (ngSubmit)="submit()" method="POST">
-                    <div class="row row-space">
-                        <div class="col-4">
-                            <div class="input-group">
-                                <label for="id"><i class="fa fa-id-badge"></i> ID</label>
-                                <input type="text" name="id" class="input--style-4" placeholder="id"
-                                    [(ngModel)]="user.id" required #id="ngModel" />
-                                <div [hidden]="id.valid || id.pristine">
-                                    <small>Please entar id</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="input-group">
-                                <label for="name"><i class="fa fa-user-circle" aria-hidden="true"></i> NAME</label>
-                                <input type="text" name="name" class="input--style-4" placeholder="name"
-                                    [(ngModel)]="user.name" />
+  <div class="wrapper wrapper--w680">
+    <div class="card card-4" [hidden]="isSubmit">
+      <div class="card-body">
+        <h2 class="title">Registration Form</h2>
+        <form #signup="ngForm" (ngSubmit)="submit()" method="POST">
+          <div class="row row-space">
+            
+            <div class="col-4">
+              <div class="input-group">
+                <label for="name"><i class="fa fa-user-circle" aria-hidden="true"></i> NAME</label>
+                <input type="text" name="name" class="input--style-4" placeholder="name" [(ngModel)]="user.name" />
 
-                            </div>
+              </div>
 
-                        </div>
-                    </div>
-                    <div class="row row-space">
-                        <div class="col-4">
-                            <div class="input-group">
-                                <label for="username"><i class="fa fa-user"></i> USERNAME</label>
-                                <input type="text" name="username" class="input--style-4" placeholder="username"
-                                    [(ngModel)]="user.username" required #username="ngModel" />
-                                    <div [hidden]="username.valid || username.pristine">
-                                        <small>Username Required</small>
-                                    </div>
-
-                            </div>
-                        </div>
-
-                        <div class="col-4">
-                            <div class="input-group">
-                                <div style="padding-top: 10px;">
-                                    <label for="password"><i class="fa fa-lock"></i> PASSWORD</label>
-                                    <input type="text" name="password" class="input--style-4" placeholder="password"
-                                        [(ngModel)]="user.password" required #password="ngModel" />
-                                        <div [hidden]="password.valid || password.pristine">
-                                            <small>Password Requird</small>
-                                        </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row row-space">
-                        <div class="col-4">
-                            <div class="input-group">
-                                <label for="dob"><i class="fa fa-table"></i> DOB</label>
-                                <input type="date" name="date" class="input--style-4" placeholder="dob"
-                                    [(ngModel)]="user.dob" />
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="input-group">
-                                <label for="mobile"><i class="fa fa-phone" aria-hidden="true"></i> MOBILE</label>
-                                <input type="text" name="mobile" class="input--style-4" placeholder="mobile"
-                                    [(ngModel)]="user.mobile" />
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="input-group">
-                        <label for="email"><i class="fa fa-envelope"></i> EMAIL</label>
-                        <input type="text" name="email" class="input--style-4" placeholder="email"
-                            [(ngModel)]="user.email" required #email="ngModel" />
-                            <div [hidden]="email.valid || email.pristine">
-                                <small>Please entar Email Address</small>
-                            </div>
-                    </div>
-                    <div class="input-group">
-                        <label for="address"><i class="fa fa-address-card"></i> ADDRESS</label>
-                        <input type="text" name="address" class="input--style-4" placeholder="address"
-                            [(ngModel)]="user.address" />
-                    </div>
-
-                    <div style="padding-top: 15px;">
-                        <button [disabled]="!signup.form.valid" class="btn btn--radius-2 btn--blue"
-                            type="submit">Submit</button>
-                    </div>
-                </form>
             </div>
-            <div class="col-md-1" [hidden]="!isSubmit">
-                <p>Form submitted</p>
+            <div class="col-4">
+                <div class="input-group">
+                  <label for="username"><i class="fa fa-user"></i> USERNAME</label>
+                  <input type="text" name="username" class="input--style-4" placeholder="username"
+                    [(ngModel)]="user.username" required #username="ngModel" />
+                  <div [hidden]="username.valid || username.pristine">
+                    <small>Username Required</small>
+                  </div>
+  
+                </div>
+              </div>
+          </div>
+          <div class="row row-space">
+            
+
+            <div class="col-4">
+              <div class="input-group">
+                <div style="padding-top: 10px;">
+                  <label for="password"><i class="fa fa-lock"></i> PASSWORD</label>
+                  <input type="text" name="password" class="input--style-4" placeholder="password"
+                    [(ngModel)]="user.password" required #password="ngModel" />
+                  <div [hidden]="password.valid || password.pristine">
+                    <small>Password Requird</small>
+                  </div>
+
+                </div>
+              </div>
             </div>
-        </div>
+            <div class="col-4">
+                <div class="input-group">
+                  <label for="mobile"><i class="fa fa-phone" aria-hidden="true"></i> MOBILE</label>
+                  <input type="text" name="mobile" class="input--style-4" placeholder="mobile"
+                    [(ngModel)]="user.mobile" />
+  
+                </div>
+              </div>
+          </div>
+          <div class="row row-space">
+            <!-- <div class="col-4">
+                <div class="input-group">
+                    <label for="address"><i class="fa fa-address-card"></i> ROLE</label>
+                    <select [(ngModel)]="user.role" formControlName="website" class="form-control">
+        
+                        <option disabled>Select Website</option>
+        
+                        <option>Choose Website</option>
+        
+                        <option *ngFor="let r of roleList">{{r}}</option>
+        
+                    </select>
+                  </div>
+            </div> -->
+            
+          </div>
+          <div class="input-group">
+            <label for="email"><i class="fa fa-envelope"></i> EMAIL</label>
+            <input type="text" name="email" class="input--style-4" placeholder="email" [(ngModel)]="user.email" required
+              #email="ngModel" />
+            <div [hidden]="email.valid || email.pristine">
+              <small>Please entar Email Address</small>
+            </div>
+          </div>
+          
+
+          <div style="padding-top: 15px;">
+            <button [disabled]="!signup.form.valid" class="btn btn--radius-2 btn--blue" (click)="onsubmit()" type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-1" [hidden]="!isSubmit">
+        <p>Form submitted</p>
+      </div>
     </div>
+  </div>
 </div>
