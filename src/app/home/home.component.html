@@ -53,19 +53,15 @@
                 >Home <span class="sr-only">(current)</span></a
               >
               <a class="nav-link" routerLink="#">Bangladesh</a>
-              <a class="nav-link" routerLink="#">Sports</a>
-              <a class="nav-link" routerLink="#">Opinion</a>
+              <a class="nav-link" routerLink="#">International</a>
               <a class="nav-link" routerLink="#">Business</a>
-              <a class="nav-link" routerLink="#">Youth</a>
               <a class="nav-link" routerLink="#">Lifestyle</a>
+              <a class="nav-link" routerLink="#">Politics</a>
+              <a class="nav-link" routerLink="#">Economics</a>
+              <a class="nav-link" routerLink="#">Sports</a>
               <a class="nav-link" routerLink="#">Entertainment</a>
-              <a
-                class="nav-link disabled"
-                routerLink="#"
-                tabindex="-1"
-                aria-disabled="true"
-                >next</a
-              >
+              <a class="nav-link" routerLink="#">Openion</a>
+              
             </div>
           </div>
         </nav>
@@ -87,8 +83,8 @@
     </div>
     <div class="col-sm-10">
       <marquee class="float-right" style="display: inline;">
-        <p *ngFor="let item of postArr.slice(0, 4)" style="font-family: Impact; font-size: 18pt">
-        {{ item.pname }} </p>
+        <p *ngFor="let item of postArr.slice(0,1); index as i" style="font-family: Impact; font-size: 18pt" >
+        {{ item.pname}} </p>
         
         </marquee>
     </div>
@@ -141,9 +137,9 @@
       </div>
     </div>
     
-    <div class="col-sm-3" *ngFor="let item of postArr">
+    <div class="col-sm-3">
       
-      <div class="images_title">
+      <div class="images_title"  *ngFor="let item of postArr.slice(0,2)">
       <img class="img-fluid" src="{{ item.image }}" width="400" height="225"/>
       <h4 class="heading_03">  {{ item.pname }} </h4>
       </div> 
@@ -153,6 +149,11 @@
   </div>
   <div class="row">
     <div class="col-sm-3">
+      <div *ngFor="let item1 of postList"> 
+        <img class="img-fluid" src="../../assets/images/{{ item1.fimage }}" />
+        <h4 class="heading_03">{{ item1.ptitle }}</h4>
+    </div></div>
+    <!-- <div class="col-sm-3">
       <div *ngFor="let item of postArr"> 
         <img class="img-fluid" src="{{ item.image }}" />
         <h4 class="">{{ item.pname }}</h4>
@@ -166,12 +167,7 @@
       <div *ngFor="let item of postArr"> 
         <img class="img-fluid" src="{{ item.image }}" />
         <h4 class="">{{ item.pname }}</h4>
-    </div></div>
-    <div class="col-sm-3">
-      <div *ngFor="let item of postArr"> 
-        <img class="img-fluid" src="{{ item.image }}" />
-        <h4 class="">{{ item.pname }}</h4>
-    </div></div>
+    </div></div> -->
   </div>
   
 </div>

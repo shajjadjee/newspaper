@@ -13,7 +13,12 @@ const routes: Routes = [
     path: '', component: HomeComponent,
   },
   {
-    path: 'signup', component: SignupComponent
+    path: 'signup', component: SignupComponent ,
+    children:[
+      {
+        path: '**', redirectTo: 'dashboard'
+      },
+    ],
   },
   {
     path: 'login', component: LoginComponent

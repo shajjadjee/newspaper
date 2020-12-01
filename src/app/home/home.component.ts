@@ -1,4 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Post } from '../model/post.model';
 
 @Component({
   selector: 'app-home',
@@ -33,10 +36,18 @@ export class HomeComponent implements OnInit {
     },
     
   ]
-  constructor() { }
+  post: Post= new Post(0, '', '', '','slide1.jpg','','');
+  postList: Post[];
+  constructor(private http: HttpClient, private router: Router) { }
   currentDate = new Date();
 
   ngOnInit(): void {
+    this.getPostList();
   }
-
+  getPostList() {
+    this.http.get<Post[]>('http://localhost:8080/api/post/list')
+    .subscribe(data => {
+      this.postList = data;      
+    });
+  }
 }

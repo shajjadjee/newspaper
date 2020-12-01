@@ -1,9 +1,9 @@
 <div class="page-wrapper bg-gra-02 font-poppins" style="padding: 130px 0px 100px 0px;">
   <div class="wrapper wrapper--w680">
-    <div class="card card-4" [hidden]="isSubmit">
+    <div class="card card-4">
       <div class="card-body">
         <h2 class="title">Registration Form</h2>
-        <form #signup="ngForm" (ngSubmit)="submit()" method="POST">
+        <form #signup="ngForm" (ngSubmit)="submit()">
           <div class="row row-space">
             
             <div class="col-4">
@@ -51,23 +51,6 @@
                 </div>
               </div>
           </div>
-          <div class="row row-space">
-            <!-- <div class="col-4">
-                <div class="input-group">
-                    <label for="address"><i class="fa fa-address-card"></i> ROLE</label>
-                    <select [(ngModel)]="user.role" formControlName="website" class="form-control">
-        
-                        <option disabled>Select Website</option>
-        
-                        <option>Choose Website</option>
-        
-                        <option *ngFor="let r of roleList">{{r}}</option>
-        
-                    </select>
-                  </div>
-            </div> -->
-            
-          </div>
           <div class="input-group">
             <label for="email"><i class="fa fa-envelope"></i> EMAIL</label>
             <input type="text" name="email" class="input--style-4" placeholder="email" [(ngModel)]="user.email" required
@@ -79,13 +62,13 @@
           
 
           <div style="padding-top: 15px;">
-            <button [disabled]="!signup.form.valid" class="btn btn--radius-2 btn--blue" (click)="onsubmit()" type="submit">Submit</button>
+            <button [disabled]="!signup.form.valid" class="btn btn--radius-2 btn--blue" type="submit">Submit</button>
           </div>
         </form>
       </div>
-      <div class="col-md-1" [hidden]="!isSubmit">
+      <!-- <div class="col-md-1" [hidden]="!isSubmit">
         <p>Form submitted</p>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>

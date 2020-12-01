@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from '../model/post.model';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-newspost',
@@ -11,9 +13,9 @@ export class NewspostComponent implements OnInit {
   isCreate = true;
   formTitle = 'Create New Post';
   formTitleEdit = 'Edit Post';
-  post: Post= new Post(0, '', '', '','','',0,'');
+  post: Post= new Post(0, '', '', '', 'slide1.jpg', '', '');
   postList: Post[];
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router, private toastr: ToastrService) {
      
    }
 
@@ -23,7 +25,9 @@ export class NewspostComponent implements OnInit {
   savePost() {
     this.http.post<Post>('http://localhost:8080/api/post/save', this.post)
     .subscribe(data => {
-      console.log(data);
+      if(data !=null){
+        this.toastr.success('success', 'Save success!');
+      }
       
     });
   }
@@ -31,7 +35,9 @@ export class NewspostComponent implements OnInit {
   updatePost() {
     this.http.put<Post>('http://localhost:8080/api/post/update', this.post)
     .subscribe(data => {
-      console.log("update successful");
+      if(data !=null){
+        this.toastr.success('update', 'Update success!');
+      }
       
     });
   }
@@ -55,7 +61,7 @@ export class NewspostComponent implements OnInit {
     this.http.delete<any>('http://localhost:8080/api/post/delete/'+id)
     .subscribe(data => {
       console.log("Delete successful");
-      
+      // this.router.navigate(['/dasboard/post']);
     });
   }
 

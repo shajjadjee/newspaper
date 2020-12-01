@@ -14,6 +14,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { PipesModule } from 'w-ng5';
 import { UserService } from './service/user.service';
+import { AlertComponent } from './alert/alert.component';
+import { ReadComponent } from './newspost/read/read.component';
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,14 +25,17 @@ import { UserService } from './service/user.service';
     NewspostComponent,
     LoginComponent,
     SignupComponent,
-    DasboardComponent
+    DasboardComponent,
+    AlertComponent,
+    ReadComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    PipesModule
+    PipesModule,
+    ToastrModule.forRoot(),
     
   ],
   providers: [DatePipe,UserService],
