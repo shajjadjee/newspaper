@@ -26,4 +26,7 @@ export class CategoryComponent implements OnInit {
       this.postcData = post;
     });
 }
+navigation(link){
+  this.router.navigate([link]);
+}
 }

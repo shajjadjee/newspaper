@@ -7,7 +7,7 @@
         <h1 class="h1 mb-3 mt-5">Welcome {{username}}!</h1>
         <form #postForm="ngForm" (ngSubmit)="savePost()">
           <!-- <input [(ngModel)]="post.username" value="{{username}}" type="text" class="form-control" name="username" id="username" /> -->
-          <input [(ngModel)]="post.username" type="radio"  value="{{username}}" name="username" id="username" [checked]="true" />
+          
           <div class="form-group">
             <label for="title">Title</label>
             <input [(ngModel)]="post.ptitle" type="text" class="form-control" name="title" id="title" />
@@ -48,6 +48,7 @@
             <label for="image">Feature Image</label>
             <input [(ngModel)]="post.fimage" type="file" class="form-control" name="image" id="image" />
           </div>
+          <input [(ngModel)]="post.username" type="radio"  value="{{username}}" name="username" id="username" [checked]="true" required />Agree with Terms and condition.
           <button class="btn btn-primary float-right" type="submit">
             Save
           </button>

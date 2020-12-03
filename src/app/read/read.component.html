@@ -1,47 +1,81 @@
 <app-header></app-header>
 <div class="container">
   <div class="row">
-    <div class="col-sm-4">
-      <div class="product-image">
+    <div class="col-sm-8">
+      <h2>{{ postData.ptitle }}</h2>
+      <span
+        ><i class="fa fa-user text-secondary"></i> {{ postData.username }}</span
+      >
+      <div>
+        <i class="fa fa-clock-o"></i><span style="color: #dc4e41"></span>
+        {{ postData.pdate }}
+      </div>
+      <div class="image">
         <div class="view hm-zoom z-depth-2" style="cursor: pointer">
-          <img src="../../assets/images/{{ postData.fimage }}" alt="{{postData.ptitle}}" width="100%" class="img-fluid rounded">
+          <img
+            src="../../assets/images/{{ postData.fimage }}"
+            alt="{{ postData.ptitle }}"
+            width="100%"
+            class="img-fluid rounded"
+          />
         </div>
-        <div class="" style="margin-top:15px">
+        <div
+          class="IfTxty news-element-text text-justify my-2 pr-md-4 text-break"
+          id="myText"
+        >
+          <p>{{ postData.pdesc }}</p>
+        </div>
+        <div class="" style="margin-top: 15px">
           <ul class="list-group mb-3">
-            <li class="list-group-item d-flex justify-content-between lh-condensed">
+            <li
+              class="list-group-item d-flex justify-content-between lh-condensed"
+            >
               <div>
-                <h6 class="my-0">blog Category</h6>
+                <h6 class="my-0">Category</h6>
               </div>
-              <span class="text-muted" style="color:crimson !important"> {{postData.cname}}</span>
+              <span class="text-muted" style="color: crimson !important">
+                {{ postData.cname }}</span
+              >
             </li>
-            
           </ul>
-          <button class="btn btn-warning" (click)="navigation('')">Go Back</button>
+          <button class="btn btn-warning" (click)="navigation('')">
+            Go Back
+          </button>
         </div>
       </div>
+      
     </div>
-    <div class="col-sm-8">
+    <div class="col-sm-4"></div>
+<div class="row">
+ <div class="col-sm-2" *ngFor="let item of postList">
+        <img class="img-fluid" src="../../assets/images/{{ item.fimage }}" />
+        <h4 class="heading_03" style="font-size: 18px;">
+          <a routerLink="/read/{{ item.id }}">{{ item.ptitle | slice:0:15}}...</a>
+        </h4>
+      </div>
+</div>
+    <!-- <div class="col-sm-8">
       <div class="product-detail">
-        <h5 class="product-head">Blog Details</h5>
+        <h5 class="product-head">News Details</h5>
         <table class="table" cellspacing="0" style="max-height: 28px">
           <tbody>
             <tr>
-              <th scope="row">Blog Name</th>
+              <th scope="row">News Title</th>
               <td>{{postData.ptitle}}</td>
             </tr>
             
             <tr>
-              <th scope="row">Blog Description</th>
+              <th scope="row">News Description</th>
               <td style="white-space: pre-line;">{{postData.pdesc}}</td>
             </tr>
           
             <tr>
-              <th scope="row">Blog Added on</th>
-              <!-- <td>{{product.productAdded * 1000 | date}}</td> -->
+              <th scope="row">News Added on</th>
+              <td>{{postData.date}}</td>
             </tr>
           </tbody>
         </table>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>

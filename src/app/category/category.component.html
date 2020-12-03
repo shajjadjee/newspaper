@@ -2,9 +2,19 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-3" *ngFor="let item of postcData">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="../../assets/images/{{ item.fimage }}" alt="{{ item.ptitle }}">
+        <div class="card-body">
+          <h5 class="card-title"><a routerLink="/read/{{ item.id }}">{{ item.ptitle | slice:0:40}}...</a></h5>
+          <p class="card-text">{{ item.pdesc | slice:0:55}}...... </p>
+          <a routerLink="/read/{{ item.id }}">Read more.....</a>
+        </div>
+      </div>
+      <!-- <div class="col-sm-3" *ngFor="let item of postcData">
 
       <img class="img-fluid" src="../../assets/images/{{ item.fimage }}" />
       <h4 class="heading_03"><a routerLink="/read/{{ item.id }}">{{ item.ptitle }}</a></h4>
+    </div> -->
     </div>
   </div>
 </div>

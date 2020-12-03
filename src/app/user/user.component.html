@@ -1,41 +1,37 @@
 <div class="container">
-    <div class="row">
-        <div class="col-md-10">
-          <div class="responsive">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>NAME</th>
-                  <th>USERNAME</th>
-                  <th>PASSWORD</th>
-                  <th>EMAIL</th>
-                  <th>MOBILE</th>
-                  <th>ROLE</th>
-                  <th>POST ID</th>
-                  <th>ACTION</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let u of userList">
-                  <td>{{ u.id }}</td>
-                  <td>{{ u.name }}</td>
-                  <td>{{ u.username }}</td>
-                  <td>{{ u.password }}</td>
-                  <td>{{ u.email }}</td>
-                  <td>{{ u.mobile }}</td>
-                  <td>{{ u.role }}</td>
-                  <td>{{ u.pid }}</td>
-                  
-                    <td>
-                      <a (click)="edit(u.id)">Edit</a> |
-                      <a (click)="delete(u.id)">Delete</a>
-                  </td>
-                  
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
+  <div class="row">
+    <div class="col-md-10">
+      <div class="responsive">
+        <table class="table">
+          <thead class="table table-dark">
+            <tr>
+              <th>ID</th>
+              <th>NAME</th>
+              <th>USERNAME</th>
+              <th>PASSWORD</th>
+              <th>EMAIL</th>
+              <th>MOBILE</th>
+              <th>ROLE</th>
+              <th>ACTION</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let u of userList">
+              <td>{{ u.id }}</td>
+              <td>{{ u.name }}</td>
+              <td>{{ u.username }}</td>
+              <td>{{ u.password }}</td>
+              <td>{{ u.email }}</td>
+              <td>{{ u.mobile }}</td>
+              <td>{{ u.role }}</td>
+              <td>
+                <a (click)="edit(u.id)">Edit</a> |
+                <a (click)="delete(u.id)">Delete</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
+    </div>
+  </div>
 </div>

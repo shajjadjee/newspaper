@@ -1,0 +1,9 @@
+a {
+    color: #ffffff;
+    text-decoration: none;
+    
+}
+.nav-link {
+    display: block;
+    padding: 0rem 0.5rem;
+}
