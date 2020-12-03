@@ -3,6 +3,9 @@ import { Post } from '../model/post.model';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { UserService } from '../service/user.service';
+import { User } from '../model/user.model';
+import { PostService } from '../service/post.service';
 
 @Component({
   selector: 'app-newspost',
@@ -13,22 +16,34 @@ export class NewspostComponent implements OnInit {
   isCreate = true;
   formTitle = 'Create New Post';
   formTitleEdit = 'Edit Post';
-  post: Post= new Post(0, '', '', '', 'slide1.jpg', '', '');
+  post: Post= new Post(0, '', '', '', 'slide1.jpg', '', '','');
   postList: Post[];
-  constructor(private http: HttpClient, private router: Router, private toastr: ToastrService) {
+  user:User = new User(0, '', '', '', '', '', '');
+userList: User[];
+role: string;
+username: string;
+  constructor(private ps: PostService ,private us: UserService, private http: HttpClient, private router: Router, private toastr: ToastrService) {
      
    }
 
   ngOnInit(): void {
     this.getPostList();
+    this.role = this.readRole('appHasRole');
+    this.username = this.readUsername('auth_username');
   }
+  readRole(key: string): string {
+    return localStorage.getItem(key);
+}
+  readUsername(key: string): string {
+    return localStorage.getItem(key);
+}
   savePost() {
     this.http.post<Post>('http://localhost:8080/api/post/save', this.post)
     .subscribe(data => {
       if(data !=null){
         this.toastr.success('success', 'Save success!');
       }
-      
+      // this.router.navigate(['/dasboard/post']);
     });
   }
 
@@ -38,15 +53,14 @@ export class NewspostComponent implements OnInit {
       if(data !=null){
         this.toastr.success('update', 'Update success!');
       }
-      
+      // this.router.navigate(['/dasboard/post']);
     });
   }
 
-  getPostList() {
-    this.http.get<Post[]>('http://localhost:8080/api/post/list')
-    .subscribe(data => {
-      this.postList = data;      
-    });
+  getPostList(){
+    this.ps.getPostList().subscribe(data => {
+     this.postList = data;      
+   })
   }
 
   edit(id) {
@@ -64,5 +78,18 @@ export class NewspostComponent implements OnInit {
       // this.router.navigate(['/dasboard/post']);
     });
   }
+  getNavigation(link, id){
+    if(id === ''){
+        this.router.navigate([link]);
+    } else {
+        this.router.navigate([link + '/' + id]);
+    }
+}
+getUserList() {
+  this.http.get<User[]>('http://localhost:8080/api/user/list')
+  .subscribe(data => {
+    this.userList = data;      
+  });
+}
 
 }

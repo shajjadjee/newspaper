@@ -15,8 +15,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { PipesModule } from 'w-ng5';
 import { UserService } from './service/user.service';
 import { AlertComponent } from './alert/alert.component';
-import { ReadComponent } from './newspost/read/read.component';
+
 import { ToastrModule } from 'ngx-toastr';
+import { ReadComponent } from './read/read.component';
+import { CategoryComponent } from './category/category.component';
+import { HeaderComponent } from './header/header.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +30,9 @@ import { ToastrModule } from 'ngx-toastr';
     SignupComponent,
     DasboardComponent,
     AlertComponent,
-    ReadComponent
+    ReadComponent,
+    CategoryComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,

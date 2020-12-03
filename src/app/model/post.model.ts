@@ -6,7 +6,8 @@ export class Post{
     fimage;
     feature;
     cname;
-    constructor(id,ptitle,pdesc,pdate,fimage,feature,cname,){
+    username;
+    constructor(id,ptitle,pdesc,pdate,fimage,feature,cname,username){
         this.id = id;
         this.ptitle = ptitle;
         this.pdesc = pdesc;
@@ -14,5 +15,6 @@ export class Post{
         this.fimage = fimage;
         this.feature = feature;
         this.cname = cname;
+        this.username = username;
     }
 }

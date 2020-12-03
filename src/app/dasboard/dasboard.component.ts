@@ -10,12 +10,16 @@ import { UserService } from '../service/user.service';
 export class DasboardComponent implements OnInit {
 
   constructor(private auth: UserService, private router: Router) { }
-
+  role: string;
   ngOnInit(): void {
+    this.role = this.readLocalStorageValue('appHasRole');
   }
   logout(){
     this.auth.logout();
     this.router.navigate(['login']);
   }
+  readLocalStorageValue(key: string): string {
+    return localStorage.getItem(key);
+}
 
 }

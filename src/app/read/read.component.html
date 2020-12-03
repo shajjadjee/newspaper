@@ -1,0 +1,47 @@
+<app-header></app-header>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="product-image">
+        <div class="view hm-zoom z-depth-2" style="cursor: pointer">
+          <img src="../../assets/images/{{ postData.fimage }}" alt="{{postData.ptitle}}" width="100%" class="img-fluid rounded">
+        </div>
+        <div class="" style="margin-top:15px">
+          <ul class="list-group mb-3">
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
+                <h6 class="my-0">blog Category</h6>
+              </div>
+              <span class="text-muted" style="color:crimson !important"> {{postData.cname}}</span>
+            </li>
+            
+          </ul>
+          <button class="btn btn-warning" (click)="navigation('')">Go Back</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-8">
+      <div class="product-detail">
+        <h5 class="product-head">Blog Details</h5>
+        <table class="table" cellspacing="0" style="max-height: 28px">
+          <tbody>
+            <tr>
+              <th scope="row">Blog Name</th>
+              <td>{{postData.ptitle}}</td>
+            </tr>
+            
+            <tr>
+              <th scope="row">Blog Description</th>
+              <td style="white-space: pre-line;">{{postData.pdesc}}</td>
+            </tr>
+          
+            <tr>
+              <th scope="row">Blog Added on</th>
+              <!-- <td>{{product.productAdded * 1000 | date}}</td> -->
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

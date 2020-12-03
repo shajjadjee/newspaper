@@ -7,32 +7,38 @@ import { Viewmodel } from '../model/viewmodel.model';
   providedIn: 'root'
 })
 export class UserService {
-
+  loggedUser;
   constructor(private http: HttpClient, private router: Router) { }
 
-  login(user){
+  login(user) {
     this.http.post<Viewmodel>('http://localhost:8080/api/user/login', user)
-    .subscribe( (data) => {
-      if(data.status == 'success'){
+      .subscribe((data) => {
+        if (data.status == 'success') {
 
-        localStorage.setItem("auth_username", data.data.username);
-        localStorage.setItem("isAppLoggedIn", 'true');
-        this.router.navigate(['/dashboard']);        
-      } else{
-        this.router.navigate(['/login']);
-      }
-    });
+          localStorage.setItem("auth_username", data.data.username);
+          localStorage.setItem("appHasRole", data.data.role);
+          localStorage.setItem("isAppLoggedIn", 'true');
+          this.router.navigate(['/dashboard']);
+        } else {
+          this.router.navigate(['/login']);
+        }
+      });
   }
 
-  isLoggedIn (): Boolean{
-     const isLogin = Boolean(localStorage.getItem("isAppLoggedIn"));
-     return isLogin;
+  isLoggedIn(): Boolean {
+    const isLogin = Boolean(localStorage.getItem("isAppLoggedIn"));
+    return isLogin;
   }
 
-  logout (): void{
+  logout(): void {
     localStorage.removeItem('auth_username');
     localStorage.removeItem('isAppLoggedIn');
-         
- }
+    localStorage.removeItem('appHasRole');
+
   }
+  readLocalStorageValue(appHasRole: string): string {
+    return localStorage.getItem(appHasRole);
+}
+}
+
 

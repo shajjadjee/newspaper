@@ -1,0 +1,32 @@
+.images_title {
+    overflow: hidden;
+    margin-bottom: 6px;
+    border-bottom: 1px dashed #999;
+    padding-bottom: 6px;
+}
+.catagory_title1 {
+    margin-bottom: 7px;
+    padding-top: 5px;
+    padding-bottom: 2px;
+    border-bottom: 2px solid #f00;
+    background: #363d4d;
+}
+a {
+    color: #ffffff;
+    text-decoration: none;
+    
+}
+.nav-link {
+    display: block;
+    padding: 0rem 0.5rem;
+}
+.overlay_lead {
+    position: absolute;
+    bottom: 0;
+    /* background: #000; */
+    background: rgba(0,0,0,.5);
+    color: #f1f1f1;
+    width: 100%;
+    padding: 10px;
+    z-index: 2;
+}

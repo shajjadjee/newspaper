@@ -32,6 +32,7 @@ isSubmitted;
     .subscribe(data => {
       console.log(data);
       this.user = data;
+      this.router.navigate(['/dasboard']);
     });
   }
 }
