@@ -46,15 +46,15 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div class="navbar-nav">
                 <a class="nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-                <a class="nav-link" routerLink="/cat/Bangladesh">Bangladesh</a>
-                <a class="nav-link" routerLink="/cat/International">International</a>
-                <a class="nav-link" routerLink="/cat/Business">Business</a>
-                <a class="nav-link" routerLink="/cat/Lifestyle">Lifestyle</a>
-                <a class="nav-link" routerLink="/cat/Politics">Politics</a>
-                <a class="nav-link" routerLink="/cat/Economics">Economics</a>
-                <a class="nav-link" routerLink="/cat/Sports">Sports</a>
-                <a class="nav-link" routerLink="/cat/Entertainment">Entertainment</a>
-                <a class="nav-link" routerLink="/cat/Openion">Openion</a>
+                <a class="nav-link" href="/cat/Bangladesh">Bangladesh</a>
+                <a class="nav-link" href="/cat/International">International</a>
+                <a class="nav-link" href="/cat/Business">Business</a>
+                <a class="nav-link" href="/cat/Lifestyle">Lifestyle</a>
+                <a class="nav-link" href="/cat/Politics">Politics</a>
+                <a class="nav-link" href="/cat/Economics">Economics</a>
+                <a class="nav-link" href="/cat/Sports">Sports</a>
+                <a class="nav-link" href="/cat/Entertainment">Entertainment</a>
+                <a class="nav-link" href="/cat/Openion">Openion</a>
   
               </div>
             </div>
@@ -74,7 +74,7 @@
           <marquee>
             <p *ngFor="let item of postList;"
               style="font-family: Impact; font-size: 15pt; display: inline-block; padding-right: .5rem;">
-              <i class="fa fa-newspaper-o" aria-hidden="true"></i> {{ item.ptitle}} </p>
+              <i class="fa fa-newspaper-o" aria-hidden="true"></i> <a style="color: black;" href="/read/{{item.id}}">{{ item.ptitle}}</a> </p>
           </marquee>
         </div>
       </div>

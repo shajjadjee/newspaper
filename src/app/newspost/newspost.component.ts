@@ -18,10 +18,12 @@ export class NewspostComponent implements OnInit {
   formTitleEdit = 'Edit Post';
   post: Post= new Post(0, '', '', '', 'slide1.jpg', '', '','');
   postList: Post[];
+  upostList: Post[];
   user:User = new User(0, '', '', '', '', '', '');
 userList: User[];
 role: string;
 username: string;
+keyword: string='';
   constructor(private ps: PostService ,private us: UserService, private http: HttpClient, private router: Router, private toastr: ToastrService) {
      
    }
@@ -61,6 +63,14 @@ username: string;
     this.ps.getPostList().subscribe(data => {
      this.postList = data;      
    })
+  }
+  getUserPost(keyword){
+    this.ps.getSearchList(keyword).subscribe(data => {
+     this.upostList = data;      
+   })
+  }
+  searchKeyword(){
+    this.getUserPost(this.keyword);
   }
 
   edit(id) {

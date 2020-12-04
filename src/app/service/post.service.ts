@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Post } from '../model/post.model';
 
 @Injectable({
@@ -17,5 +18,8 @@ export class PostService {
   }
   getPostList() {
     return this.http.get<Post[]>('http://localhost:8080/api/post/list');
+  }
+  getSearchList(keyword): Observable<Post[]>{
+    return this.http.get<Post[]>('http://localhost:8080/api/post/search/?keyword='+keyword);
   }
 }

@@ -8,7 +8,7 @@ import { UserComponent } from './user/user.component';
 import { NewspostComponent } from './newspost/newspost.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
-import { DasboardComponent } from './dasboard/dasboard.component';
+import { LayoutComponent } from './layout/layout.component';
 import { DatePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -20,6 +20,9 @@ import { ToastrModule } from 'ngx-toastr';
 import { ReadComponent } from './read/read.component';
 import { CategoryComponent } from './category/category.component';
 import { HeaderComponent } from './header/header.component';
+import { DeshboardComponent } from './layout/deshboard/deshboard.component';
+import { FilterPipe } from './alert/filter.pipe';
+import { RightsidebarComponent } from './sidebar/rightsidebar/rightsidebar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,11 +31,14 @@ import { HeaderComponent } from './header/header.component';
     NewspostComponent,
     LoginComponent,
     SignupComponent,
-    DasboardComponent,
+    LayoutComponent,
     AlertComponent,
     ReadComponent,
     CategoryComponent,
     HeaderComponent,
+    DeshboardComponent,
+    FilterPipe,
+    RightsidebarComponent,
   ],
   imports: [
     BrowserModule,

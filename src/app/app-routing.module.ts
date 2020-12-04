@@ -2,8 +2,10 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthenticatGuard } from './authenticat.guard';
 import { CategoryComponent } from './category/category.component';
-import { DasboardComponent } from './dasboard/dasboard.component';
+
 import { HomeComponent } from './home/home.component';
+import { DeshboardComponent } from './layout/deshboard/deshboard.component';
+import { LayoutComponent } from './layout/layout.component';
 import { LoginComponent } from './login/login.component';
 import { NewspostComponent } from './newspost/newspost.component';
 import { ReadComponent } from './read/read.component';
@@ -34,14 +36,14 @@ const routes: Routes = [
     path: 'login', component: LoginComponent
   },
   {
-    path: 'dashboard', component: DasboardComponent,
+    path: 'dashboard', component: LayoutComponent,
     canActivate: [AuthenticatGuard],
     children: [
       
-      // {
-      //   path: '',
-      //   component: DasboardComponent
-      // },
+      {
+        path: '',
+        component: DeshboardComponent
+      },
       {
         path: '**', redirectTo: 'dashboard'
       },

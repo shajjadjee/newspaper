@@ -45,7 +45,14 @@ export class HeaderComponent implements OnInit {
  getPostList(){
    this.ps.getPostList().subscribe(data => {
     this.postList = data;      
-  })
+  });
  }
+ getNavigation(link, id){
+  if(id === ''){
+      this.router.navigate([link]);
+  } else {
+      this.router.navigate([link + '/' + id]);
+  }
+}
 
 }

@@ -1,0 +1,60 @@
+<header>
+  <div class="header">
+    <nav class="navbar navbar-dark sticky-top text-info flex-md-nowrap p-0 shadow " pcoded-header-position="fixed">
+      <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">Admin Area</a>
+      <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse"
+        data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+          <a style="color: blue;" class="nav-link" (click)="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i>
+            Sign out</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<div class="container-fluid">
+  <div class="row">
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
+      <div class="sidebar-sticky pt-3">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" href="/dashboard">
+              <span data-feather="dashboard"><i class="fa fa-tachometer" aria-hidden="true"></i>
+              </span>
+              Dashboard <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/dashboard/post">
+              <span data-feather="file"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
+              Post
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/dashboard/user">
+              <span data-feather="file"><i class="fa fa-user-circle-o" aria-hidden="true"></i></span>
+              User
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i> Sign out</a>
+          </li>
+
+        </ul>
+      </div>
+    </nav>
+
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+  <div class="row">
+    <div class="col-sm-12" style="color: black;">footer here</div>
+  </div>
+
+</div>

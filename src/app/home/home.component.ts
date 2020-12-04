@@ -32,7 +32,9 @@ export class HomeComponent implements OnInit {
 }
   getNavigation1(link, cname){
     if(cname === ''){
-        this.router.navigate([link]);
+        this.router.navigate([link]).then(() => {
+          window.location.reload();
+        });
     } else {
         this.router.navigate([link + '/' + cname]);
     }

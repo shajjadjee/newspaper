@@ -11,13 +11,18 @@ export class UserComponent implements OnInit {
   isCreate = true;
   user:User = new User(0, '', '', '', '', '', '');
 userList: User[];
+role: string;
   constructor(private http: HttpClient) { 
    
   }
 
   ngOnInit(): void {
+    this.role = this.readRole('appHasRole');
     this.getUserList();
   }
+  readRole(key: string): string {
+    return localStorage.getItem(key);
+}
   saveUser() {
     this.http.post<User>('http://localhost:8080/api/user/save', this.user)
     .subscribe(data => {

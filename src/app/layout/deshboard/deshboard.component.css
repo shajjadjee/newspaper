@@ -1,0 +1,31 @@
+.bg-c-red,
+.text-c-red{
+    background-color: #FF5370;
+}
+.bg-c-green,
+.text-c-green
+{
+    background-color:#2ed8b6;
+}
+.bg-c-blue,
+.text-c-blue
+{
+    background-color:#4099ff;
+}
+.prod-p-card i {
+    background-color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    padding: 11px 0;
+    font-size: 18px;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    -webkit-box-shadow: 0 8px 15px rgba(62, 57, 107, 0.2);
+    box-shadow: 0 8px 15px rgba(62, 57, 107, 0.2);
+}
+.pcoded[theme-layout="vertical"] .pcoded-header[pcoded-header-position="fixed"] {
+    position: fixed;
+    z-index: 1028;
+}

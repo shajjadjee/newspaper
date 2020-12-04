@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 import { UserService } from '../service/user.service';
 
 @Component({
-  selector: 'app-dasboard',
-  templateUrl: './dasboard.component.html',
-  styleUrls: ['./dasboard.component.css']
+  selector: 'app-layout',
+  templateUrl: './layout.component.html',
+  styleUrls: ['./layout.component.css']
 })
-export class DasboardComponent implements OnInit {
+export class LayoutComponent implements OnInit {
 
   constructor(private auth: UserService, private router: Router) { }
   role: string;

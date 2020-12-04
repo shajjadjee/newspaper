@@ -1,6 +1,90 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-10">
+    <!--start: create user -->
+    <div style="width: 100%" [hidden]="!isCreate">
+      <div class="col-sm-6">
+
+        <h1 class="h1 mb-3 mt-5"></h1>
+        <form #userForm="ngForm" (ngSubmit)="saveUser()">
+          <!-- <input [(ngModel)]="user.username" value="{{username}}" type="text" class="form-control" name="username" id="username" /> -->
+
+          <div class="form-group">
+            <label for="name">NAME</label>
+            <input [(ngModel)]="user.name" type="text" class="form-control" name="name" id="name" />
+          </div>
+          <div class="form-group">
+            <label for="username">USERNAME</label>
+            <input [(ngModel)]="user.username" class="form-control" name="username" id="username" />
+          </div>
+          <div class="form-group" *ngIf="role==='admin'">
+            <label for="role">Role</label>
+            <select class="form-control" name="role" [(ngModel)]="user.role">
+              <option value="user">User</option>
+              <option value="admin">Admin</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="mobile">MOBILE</label>
+            <input [(ngModel)]="user.mobile" type="text" class="form-control" name="mobile" id="mobile" />
+          </div>
+          <div class="form-group">
+            <label for="email">EMAIL</label>
+            <input [(ngModel)]="user.email" type="text" class="form-control" name="email" id="email" />
+          </div>
+
+          <!-- <div class="form-group">
+            <label for="image">Feature Image</label>
+            <input [(ngModel)]="user.fimage" type="file" class="form-control" name="image" id="image" />
+          </div> -->
+
+          <button class="btn btn-primary float-right" type="submit">
+            Save
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!--end: create user -->
+  <!--start: update user -->
+  <br/>
+  <div class="row">
+
+    <div class="col-sm-6">
+      <div [hidden]="isCreate">
+        <form #userForm="ngForm" (ngSubmit)="updateUser()">
+          <div class="form-group">
+            <label for="name">NAME</label>
+            <input [(ngModel)]="user.name" type="text" class="form-control" name="name" id="name" />
+          </div>
+          <div class="form-group">
+            <label for="username">USERNAME</label>
+            <input [(ngModel)]="user.username" class="form-control" name="username" id="username" />
+          </div>
+          <div class="form-group" *ngIf="role==='admin'">
+            <label for="role">Role</label>
+            <select class="form-control" name="role" [(ngModel)]="user.role">
+              <option value="user">User</option>
+              <option value="admin">Admin</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="mobile">MOBILE</label>
+            <input [(ngModel)]="user.mobile" type="text" class="form-control" name="mobile" id="mobile" />
+          </div>
+          <div class="form-group">
+            <label for="email">EMAIL</label>
+            <input [(ngModel)]="user.email" type="text" class="form-control" name="email" id="email" />
+          </div>
+          <button class="btn btn-primary float-right" type="submit">
+            Update
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!--end: update user -->
+  <div class="row">
+    <div class="col-md-12">
       <div class="responsive">
         <table class="table">
           <thead class="table table-dark">

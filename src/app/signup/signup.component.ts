@@ -15,7 +15,7 @@ user;
 roleList: any = ['admin', 'user']
 isSubmitted;
   constructor(private http: HttpClient, private router: Router, private alertService: AlertService) {
-    this.user = new User(0, '', '', '', '', '', '');
+    this.user = new User(0, '', '', '', '', '', 'user');
   }
 
   ngOnInit(): void {

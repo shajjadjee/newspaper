@@ -28,12 +28,12 @@
       <h4 class="catagory_title1"><a class="nav-link" routerLink="/cat/Bangladesh"><i class="fa fa-newspaper-o"
             aria-hidden="true"></i> Bangladesh</a></h4>
       <div class="leadnews" *ngFor="let item of postList.slice(0,1)">
-        <img class="img-fluid" src="../../assets/images/{{ item.fimage }}" width="400px" height="225px" />
+        <img class="img-fluid" alt="{{item.ptitle}}" src="../../assets/images/{{ item.fimage }}" width="400px" height="225px" />
         <h4 class="heading_03"><a (click)="getNavigation('read', item.id)">{{ item.ptitle | slice:0:39  }}....</a></h4>
       </div>
       <ng-container *ngFor="let item of postList.slice(1,5)">
         <div class="images_title" *ngIf="item.cname === 'Bangladesh'">
-          <img class="img-fluid" src="../../assets/images/{{ item.fimage }}" />
+          <img class="img-fluid" alt={{item.ptitle}} src="../../assets/images/{{ item.fimage }}" />
           <h4 class="heading_03"><a (click)="getNavigation('read', item.id)">{{ item.ptitle | slice:0:39  }}....</a>
           </h4>
         </div>

@@ -1,3 +1,16 @@
+.images_title {
+    overflow: hidden;
+    margin-bottom: 6px;
+    border-bottom: 1px dashed #999;
+    padding-bottom: 6px;
+}
+.catagory_title1 {
+    margin-bottom: 7px;
+    padding-top: 5px;
+    padding-bottom: 2px;
+    border-bottom: 2px solid #f00;
+    background: #363d4d;
+}
 a {
     color: #ffffff;
     text-decoration: none;
