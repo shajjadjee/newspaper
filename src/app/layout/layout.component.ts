@@ -22,4 +22,5 @@ export class LayoutComponent implements OnInit {
     return localStorage.getItem(key);
 }
 
+
 }

@@ -15,11 +15,7 @@
       </div>
     </div>
     <div class="col-sm-4">
-      <div class="leadnews"  *ngFor="let item of postList.slice(0,2)">
-        <img class="img-fluid" src="../../assets/images/{{ item.fimage }}" width="400px" height="225px"/>
-        <h4 class="heading_03"><a (click)="getNavigation('read', item.id)">{{ item.ptitle | slice:0:39  }}....</a></h4>
-      </div>
-
+    <app-rightsidebar></app-rightsidebar>
 
     </div>
   </div>

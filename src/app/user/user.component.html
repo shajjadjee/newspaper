@@ -109,8 +109,8 @@
               <td>{{ u.mobile }}</td>
               <td>{{ u.role }}</td>
               <td>
-                <a (click)="edit(u.id)">Edit</a> |
-                <a (click)="delete(u.id)">Delete</a>
+                <a class="btn btn-warning" (click)="edit(u.id)">Edit</a> |
+                <a class="btn btn-danger" (click)="delete(u.id)">Delete</a>
               </td>
             </tr>
           </tbody>

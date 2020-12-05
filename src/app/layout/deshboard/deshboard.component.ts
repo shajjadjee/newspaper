@@ -13,40 +13,43 @@ import { UserService } from 'src/app/service/user.service';
   styleUrls: ['./deshboard.component.css']
 })
 export class DeshboardComponent implements OnInit {
-  post: Post= new Post(0, '', '', '', 'slide1.jpg', '', '','');
+  post: Post = new Post(0, '', '', '', 'slide1.jpg', '', '', '');
   postList: Post[];
   upostList: Post[];
-  user:User = new User(0, '', '', '', '', '', '');
-userList: User[];
-role: string;
-username: string;
-keyword: string='';
+  user: User = new User(0, '', '', '', '', '', '');
+  userList: User[];
+  role: string;
+  username: string;
+  keyword: string = '';
   userListuserList: any;
-  constructor(private ps: PostService ,private us: UserService, private http: HttpClient, private router: Router, private toastr: ToastrService) {
-     
-   }
+  
+  constructor(private ps: PostService, private us: UserService, private http: HttpClient, private router: Router, private toastr: ToastrService) {
+
+  }
 
   ngOnInit(): void {
+    this.getPostcount();
   }
-  getPostList(){
+  getPostList() {
     this.ps.getPostList().subscribe(data => {
-     this.postList = data;      
-   })
+      this.postList = data;
+    })
   }
-  getPostcount(): number{
+  getPostcount(): number {
     return this.getPostList.length;
   }
   getUserList() {
     this.http.get<User[]>('http://localhost:8080/api/user/list')
-    .subscribe(data => {
-      this.userList = data;      
-    });
+      .subscribe(data => {
+        this.userList = data;
+      });
   }
-  getUsercount(){
-    this.http.get<User[]>('http://localhost:8080/api/user/list')
-    .subscribe(data => {
-      this.userList = data;      
-    });
+
+  getUsercount() {
+    this.http.get<Post>('http://localhost:8080/api/post/dashboard')
+      .subscribe(data => {
+        this.postList = data;
+      });
   }
 
 }
