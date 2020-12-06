@@ -27,14 +27,17 @@
         <img class="img-fluid" alt="{{item.ptitle}}" src="../../assets/images/{{ item.fimage }}" width="400px" height="225px" />
         <h4 class="heading_03"><a (click)="getNavigation('read', item.id)">{{ item.ptitle | slice:0:39  }}....</a></h4>
       </div>
-      <ng-container *ngFor="let item of postList.slice(1,5)">
-        <div class="images_title" *ngIf="item.cname === 'Bangladesh'">
-          <img class="img-fluid" alt={{item.ptitle}} src="../../assets/images/{{ item.fimage }}" />
+      <div class="images_title" *ngFor="let item of postList.slice(1,5)">
+        <div *ngIf="item.cname === 'Bangladesh'">
+          <img class="img-fluid" alt={{item.ptitle}} src="../../assets/images/{{ item.fimage }}" width="400px" height="225px" />
           <h4 class="heading_03"><a (click)="getNavigation('read', item.id)">{{ item.ptitle | slice:0:39  }}....</a>
           </h4>
         </div>
-      </ng-container>
+      </div>
+      <div style="float: right;"><a class="morenews" href="/cat/Bangladesh"><i class="fa fa-hand-o-right" aria-hidden="true"></i>
+       More News</a></div>
     </div>
   </div>
 
 </div>
+<app-footer></app-footer>

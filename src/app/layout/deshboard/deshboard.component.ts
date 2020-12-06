@@ -16,6 +16,7 @@ export class DeshboardComponent implements OnInit {
   post: Post = new Post(0, '', '', '', 'slide1.jpg', '', '', '');
   postList: Post[];
   upostList: Post[];
+  tpost: any;
   user: User = new User(0, '', '', '', '', '', '');
   userList: User[];
   role: string;
@@ -29,14 +30,24 @@ export class DeshboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPostcount();
+    this.getUsercount();
   }
   getPostList() {
     this.ps.getPostList().subscribe(data => {
       this.postList = data;
     })
   }
-  getPostcount(): number {
-    return this.getPostList.length;
+  getPostcount() {
+    this.ps.getPostcount()
+      .subscribe(totalpost => {
+        this.tpost = totalpost as any;
+      });
+  }
+  getUsercount() {
+    this.ps.getUsercount()
+      .subscribe(totaluser => {
+        this.tpost = totaluser as any;
+      });
   }
   getUserList() {
     this.http.get<User[]>('http://localhost:8080/api/user/list')
@@ -45,11 +56,6 @@ export class DeshboardComponent implements OnInit {
       });
   }
 
-  getUsercount() {
-    this.http.get<Post>('http://localhost:8080/api/post/dashboard')
-      .subscribe(data => {
-        this.postList = data;
-      });
-  }
+  
 
 }

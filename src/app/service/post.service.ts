@@ -22,4 +22,10 @@ export class PostService {
   getSearchList(keyword): Observable<Post[]>{
     return this.http.get<Post[]>('http://localhost:8080/api/post/search/?keyword='+keyword);
   }
+  getUsercount(){
+    return this.http.get('http://localhost:8080/api/post/dashboard');
+  }
+  getPostcount(){
+    return this.http.get('http://localhost:8080/api/post/dashboard');
+  }
 }

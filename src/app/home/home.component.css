@@ -4,6 +4,16 @@
     border-bottom: 1px dashed #999;
     padding-bottom: 6px;
 }
+.images_title img {
+    float: left;
+    width: 40% !important;
+    margin: 0px 10px 0px 0px;
+    border: 2px solid #f00;
+}
+img {
+    width: 100% !important;
+    height: auto;
+}
 .catagory_title1 {
     margin-bottom: 7px;
     padding-top: 5px;
@@ -11,12 +21,30 @@
     border-bottom: 2px solid #f00;
     background: #363d4d;
 }
+.catagory_title1 a {
+    color: #fff;
+    padding-left: 8px;
+    margin-bottom: 3px;
+    display: block;
+    margin-left: 10px;
+}
 a {
-    color: #ffffff;
+    color: #000000;
     text-decoration: none;
     
+}
+.morenews {
+    border-radius: 7px;
+    padding-top: 2px;
+    padding-bottom: 0px;
+    padding-left: 10px;
+    padding-right: 6px;
+    border: 1px solid #f00;
 }
 .nav-link {
     display: block;
     padding: 0rem 0.5rem;
+}
+.h4, h4 {
+    font-size: 1.2rem;
 }

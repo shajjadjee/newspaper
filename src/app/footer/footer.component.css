@@ -1,0 +1,122 @@
+.social_area{
+    max-width: 50%;
+    float: left;
+    text-align: left;
+    }
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.bottom-2 {
+    text-align: left;
+    padding-top: 18px;
+    font-size: 16px;
+    color: #ffffff;
+}.bottom-icon .fa{margin-right: 0px;color: #fff;padding: 0px!important;}
+.footer {
+    border-top: 2px solid #66667a;
+    padding: 20px 0 10px;   
+}
+.footer_menu{
+    padding: 10px 0;
+}
+.footer_menu ul{
+    padding: 0px;
+    margin: 0;  
+}
+.footer_menu ul li{
+    list-style: none;
+   padding: 0 0 10px;
+  
+}
+.footer_menu ul li:last-child{
+    border-right: 0px;
+}
+.footer_menu ul li a{
+    color: #ffffff;
+    font-size: 16px;
+}
+.footer_menu ul li a:hover{
+    color: #ed1c24;
+}
+.bottom-3 {
+    text-align: right;
+    padding-top: 18px;
+    font-size: 16px;
+    color: #ffffff;
+    padding-right: 0;
+}
+.gray_dark {
+    padding: 15px 0px;
+    background-color: #363d4d;
+}.gray {
+    padding: 10px 0 0px;
+    background-color: #000000;
+    color: #ffffff;
+    border-top: 1px solid#b9b5b5;
+}
+.gray.bottom{
+    padding: 10px 0 10px;
+}
+.footer-add {
+    margin-top:10px;
+}
+.footer-1 .footer-menu {
+    padding-left: 15px;
+}
+ul.footer-menu li {
+    list-style: none;
+    line-height: 30px;
+}
+ul.footer-menu li a {
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 400;
+}
+.bottom_area img{
+    width: 100%;
+}
+.footer-add img{
+    border: 1px solid #ffffff;
+    border-radius: 6px;
+    max-width: 82%;
+}
+.footer-section-bottom{
+     padding: 5px 0px;
+    background-color: #686060;
+    color: #ffffff;
+}
+@media (min-width: 992px){
+.col-md-3 {
+    width: 25%;
+}
+}
+@media (max-width: 767px){
+    .mobile-nav .menu-mobile-menu-container {
+    height: 380px;
+    overflow-x: hidden;
+    }.footer-list{
+        display: none;
+    }
+}
+.back-top {
+    position: fixed;
+    display: none;
+    text-align: center;
+    background: 0 0;
+    z-index: 9999;
+    color: #f3151c;
+    width: 40px;
+    height: 40px;
+    border: 3px solid #f3151c;
+    line-height: 30px;
+    right: 30px;
+    bottom: 50px;
+    border-radius: 50%;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
