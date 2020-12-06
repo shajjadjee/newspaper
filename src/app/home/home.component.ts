@@ -10,7 +10,7 @@ import { PostService } from '../service/post.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  post: Post= new Post(0, '', '', '','slide1.jpg','','','');
+  post: Post= new Post(0, '', '', '','','','','');
   postList: Post[];
   constructor(private ps: PostService,private http: HttpClient, private router: Router) { }
   

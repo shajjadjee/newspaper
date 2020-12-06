@@ -6,7 +6,7 @@
       <div id="slide" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active" *ngFor="let item of postList.slice(0,1);">
-            <img class="" src="../../assets/images/{{ item.fimage }}" width="750px" height="420px" alt="{{ item.ptitle }}" />
+            <img class="" src="{{ item.fimage }}" width="750px" height="420px" alt="{{ item.ptitle }}" />
             <div class="overlay_lead">
               <h5><a (click)="getNavigation('read', item.id)">{{ item.ptitle | slice:0:39  }}....</a></h5>
             </div>
@@ -24,12 +24,12 @@
       <h4 class="catagory_title1"><a class="nav-link" routerLink="/cat/Bangladesh"><i class="fa fa-newspaper-o"
             aria-hidden="true"></i> Bangladesh</a></h4>
       <div class="leadnews" *ngFor="let item of postList.slice(0,1)">
-        <img class="img-fluid" alt="{{item.ptitle}}" src="../../assets/images/{{ item.fimage }}" width="400px" height="225px" />
+        <img class="img-fluid" alt="{{item.ptitle}}" src="{{ item.fimage }}" width="400px" height="225px" />
         <h4 class="heading_03"><a (click)="getNavigation('read', item.id)">{{ item.ptitle | slice:0:39  }}....</a></h4>
       </div>
       <div class="images_title" *ngFor="let item of postList.slice(1,5)">
         <div *ngIf="item.cname === 'Bangladesh'">
-          <img class="img-fluid" alt={{item.ptitle}} src="../../assets/images/{{ item.fimage }}" width="400px" height="225px" />
+          <img class="img-fluid" alt={{item.ptitle}} src="{{ item.fimage }}" width="400px" height="225px" />
           <h4 class="heading_03"><a (click)="getNavigation('read', item.id)">{{ item.ptitle | slice:0:39  }}....</a>
           </h4>
         </div>
