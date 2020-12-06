@@ -122,7 +122,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let p of postList">
+          <tr  *ngFor="let p of postList | userfilter:{uname: 'jahid'}">
             <td>{{ p.id }}</td>
             <td>{{ p.ptitle| slice:0:15 }}....</td>
             <td>{{ p.pdate }}</td>
@@ -134,7 +134,7 @@
             <td></td>
             <td *ngIf="role==='user'">
               <a class="btn btn-success" (click)="getNavigation('read', p.id)">view</a> |
-              <a class="btn btn-warning" (click)="edit(p.id)">Edit</a> |
+              <a class="btn btn-warning" (click)="edit(p.id)">Edit</a> 
               <!-- <a class="btn btn-danger" (click)="delete(p.id)">Delete</a> -->
             </td>
             <td *ngIf="role==='admin'">

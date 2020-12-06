@@ -6,9 +6,10 @@
       <div id="slide" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active" *ngFor="let item of postList.slice(0,1);">
-            <img class="" src="{{ item.fimage }}" width="750px" height="420px" alt="{{ item.ptitle }}" />
-            <div class="overlay_lead">
-              <h5><a (click)="getNavigation('read', item.id)">{{ item.ptitle | slice:0:39  }}....</a></h5>
+            <img class="img-fluid" src="{{ item.fimage }}" width="750px" height="420px" alt="{{ item.ptitle }}" />
+            <div class="overlay_lead" style="position: absolute;
+            bottom: 1%;background:rgba(0, 0, 0, 0.5)">
+              <h5><a style="color: white;" (click)="getNavigation('read', item.id)">{{ item.ptitle | slice:0:75  }}....</a></h5>
             </div>
           </div>
         </div>
@@ -23,16 +24,14 @@
     <div class="col-sm-4">
       <h4 class="catagory_title1"><a class="nav-link" routerLink="/cat/Bangladesh"><i class="fa fa-newspaper-o"
             aria-hidden="true"></i> Bangladesh</a></h4>
-      <div class="leadnews" *ngFor="let item of postList.slice(0,1)">
+      <div class="leadnews" *ngFor="let item of postList | filter:{cname: 'Bangladesh'} | slice:0:1 ">
         <img class="img-fluid" alt="{{item.ptitle}}" src="{{ item.fimage }}" width="400px" height="225px" />
         <h4 class="heading_03"><a (click)="getNavigation('read', item.id)">{{ item.ptitle | slice:0:39  }}....</a></h4>
       </div>
-      <div class="images_title" *ngFor="let item of postList.slice(1,5)">
-        <div *ngIf="item.cname === 'Bangladesh'">
+      <div class="images_title" *ngFor="let item of postList | filter:{cname: 'Bangladesh'} | slice:1:5 ">
           <img class="img-fluid" alt={{item.ptitle}} src="{{ item.fimage }}" width="400px" height="225px" />
           <h4 class="heading_03"><a (click)="getNavigation('read', item.id)">{{ item.ptitle | slice:0:39  }}....</a>
           </h4>
-        </div>
       </div>
       <div style="float: right;"><a class="morenews" href="/cat/Bangladesh"><i class="fa fa-hand-o-right" aria-hidden="true"></i>
        More News</a></div>
@@ -40,21 +39,34 @@
     <div class="col-sm-4">
       <h4 class="catagory_title1"><a class="nav-link" routerLink="/cat/International"><i class="fa fa-newspaper-o"
             aria-hidden="true"></i> International</a></h4>
-      <div class="leadnews" *ngFor="let item of postList.slice(0,1)">
+      <div class="leadnews" *ngFor="let item of postList | filter:{cname: 'International'} | slice:0:1 ">
         <img class="img-fluid" alt="{{item.ptitle}}" src="{{ item.fimage }}" width="400px" height="225px" />
         <h4 class="heading_03"><a (click)="getNavigation('read', item.id)">{{ item.ptitle | slice:0:39  }}....</a></h4>
       </div>
-      <div class="images_title" *ngFor="let item of postList">
-        <div *ngIf="item.cname === 'International'">
+      <div class="images_title" *ngFor="let item of postList | filter:{cname: 'International'} | slice:1:5">
           <img class="img-fluid" alt={{item.ptitle}} src="{{ item.fimage }}" width="400px" height="225px" />
           <h4 class="heading_03"><a (click)="getNavigation('read', item.id)">{{ item.ptitle | slice:0:39  }}....</a>
           </h4>
-        </div>
       </div>
       <div style="float: right;"><a class="morenews" href="/cat/International"><i class="fa fa-hand-o-right" aria-hidden="true"></i>
        More News</a></div>
     </div>
+    <div class="col-sm-4">
+      <h4 class="catagory_title1"><a class="nav-link" routerLink="/cat/Business"><i class="fa fa-newspaper-o"
+            aria-hidden="true"></i> Business</a></h4>
+      <div class="leadnews" *ngFor="let item of postList | filter:{cname: 'Business'} | slice:0:1 ">
+        <img alt="{{item.ptitle}}" src="{{ item.fimage }}" width="350px" height="233px" />
+        <h4 class="heading_03"><a (click)="getNavigation('read', item.id)">{{ item.ptitle | slice:0:39  }}....</a></h4>
+      </div>
+      <div class="images_title" *ngFor="let item of postList | filter:{cname: 'Business'} | slice:1:5">
+          <img class="img-fluid" alt={{item.ptitle}} src="{{ item.fimage }}" width="400px" height="225px" />
+          <h4 class="heading_03"><a (click)="getNavigation('read', item.id)">{{ item.ptitle | slice:0:39  }}....</a>
+          </h4>
+      </div>
+      <div style="float: right;"><a class="morenews" href="/cat/Business"><i class="fa fa-hand-o-right" aria-hidden="true"></i>
+       More News</a></div>
+    </div>
   </div>
-
+  <!-- <div *ngIf="item.cname === 'International'"></div> -->
 </div>
 <app-footer></app-footer>

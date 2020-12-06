@@ -47,12 +47,13 @@
     </div>
     <div class="col-sm-4"></div>
 <div class="row">
- <div class="col-sm-2" *ngFor="let item of postList">
-        <img class="img-fluid" src="{{ item.fimage }}" />
+ <div class="col-sm-2" *ngFor="let item of postList; index as i">
+        <img alt="{{ item.ptitle}}" src="{{ item.fimage }}" width="165px" height="95px"/>
         <h4 class="heading_03" style="font-size: 18px;">
           <a href="/read/{{ item.id }}">{{ item.ptitle | slice:0:15}}...</a>
         </h4>
       </div>
+      <div class="col-sm-4"></div>
 </div>
     <!-- <div class="col-sm-8">
       <div class="product-detail">

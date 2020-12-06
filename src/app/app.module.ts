@@ -24,6 +24,7 @@ import { DeshboardComponent } from './layout/deshboard/deshboard.component';
 import { FilterPipe } from './alert/filter.pipe';
 import { RightsidebarComponent } from './sidebar/rightsidebar/rightsidebar.component';
 import { FooterComponent } from './footer/footer.component';
+import { Userfilter } from './alert/userfilter.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +42,7 @@ import { FooterComponent } from './footer/footer.component';
     FilterPipe,
     RightsidebarComponent,
     FooterComponent,
+    Userfilter,
   ],
   imports: [
     BrowserModule,

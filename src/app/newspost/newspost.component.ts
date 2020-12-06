@@ -29,6 +29,7 @@ export class NewspostComponent implements OnInit {
   userList: User[];
   role: string;
   username: string;
+  userpList: any;
   keyword: string = '';
   selectedFile: ImageSnippet;
   constructor(private imageService: ImageService, private ps: PostService, private us: UserService, private http: HttpClient, private router: Router, private toastr: ToastrService) {
@@ -129,6 +130,12 @@ export class NewspostComponent implements OnInit {
     this.http.get<User[]>('http://localhost:8080/api/user/list')
       .subscribe(data => {
         this.userList = data;
+      });
+  }
+  getUserpList() {
+    this.http.get<Post[]>('http://localhost:8080/api/post/list')
+      .subscribe(username => {
+        this.userpList = username;
       });
   }
 
