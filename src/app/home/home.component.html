@@ -37,6 +37,23 @@
       <div style="float: right;"><a class="morenews" href="/cat/Bangladesh"><i class="fa fa-hand-o-right" aria-hidden="true"></i>
        More News</a></div>
     </div>
+    <div class="col-sm-4">
+      <h4 class="catagory_title1"><a class="nav-link" routerLink="/cat/International"><i class="fa fa-newspaper-o"
+            aria-hidden="true"></i> International</a></h4>
+      <div class="leadnews" *ngFor="let item of postList.slice(0,1)">
+        <img class="img-fluid" alt="{{item.ptitle}}" src="{{ item.fimage }}" width="400px" height="225px" />
+        <h4 class="heading_03"><a (click)="getNavigation('read', item.id)">{{ item.ptitle | slice:0:39  }}....</a></h4>
+      </div>
+      <div class="images_title" *ngFor="let item of postList">
+        <div *ngIf="item.cname === 'International'">
+          <img class="img-fluid" alt={{item.ptitle}} src="{{ item.fimage }}" width="400px" height="225px" />
+          <h4 class="heading_03"><a (click)="getNavigation('read', item.id)">{{ item.ptitle | slice:0:39  }}....</a>
+          </h4>
+        </div>
+      </div>
+      <div style="float: right;"><a class="morenews" href="/cat/International"><i class="fa fa-hand-o-right" aria-hidden="true"></i>
+       More News</a></div>
+    </div>
   </div>
 
 </div>
