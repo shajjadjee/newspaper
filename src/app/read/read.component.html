@@ -33,9 +33,7 @@
               <div>
                 <h6 class="my-0">Category</h6>
               </div>
-              <span class="text-muted" style="color: crimson !important">
-                {{ postData.cname }}</span
-              >
+                <a  class="text-muted" style="color: crimson !important" href="/cat/{{ postData.cname }}">{{ postData.cname }}</a>
             </li>
           </ul>
           <button class="btn btn-warning" (click)="navigation('')">
