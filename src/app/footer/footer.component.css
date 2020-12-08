@@ -120,3 +120,16 @@ ul.footer-menu li a {
     -o-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
 }
+#footer_desktop #mid-footer {
+    background-color: #000;
+}
+.bottom_menu {
+    width: 100%;
+    overflow: hidden;
+    margin: 0 auto;
+    text-align: left;
+    padding: 10px 0;
+}
+a .nav-link{
+    text-align: right;
+}

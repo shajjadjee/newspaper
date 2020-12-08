@@ -31,6 +31,16 @@ export class DeshboardComponent implements OnInit {
   ngOnInit(): void {
     this.getPostcount();
     this.getUsercount();
+    this.getCommentcount();
+    this.role = this.readRole('appHasRole');
+    this.username = this.readUsername('auth_username');
+    this.getPostList();
+  }
+  readRole(key: string): string {
+    return localStorage.getItem(key);
+  }
+  readUsername(key: string): string {
+    return localStorage.getItem(key);
   }
   getPostList() {
     this.ps.getPostList().subscribe(data => {
@@ -47,6 +57,12 @@ export class DeshboardComponent implements OnInit {
     this.ps.getUsercount()
       .subscribe(totaluser => {
         this.tpost = totaluser as any;
+      });
+  }
+  getCommentcount() {
+    this.ps.getCommentcount()
+      .subscribe(totalcomment => {
+        this.tpost = totalcomment as any;
       });
   }
   getUserList() {

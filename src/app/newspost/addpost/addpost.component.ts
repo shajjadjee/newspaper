@@ -1,36 +1,27 @@
-import { Component, OnInit } from '@angular/core';
-import { Post } from '../model/post.model';
 import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { UserService } from '../service/user.service';
-import { User } from '../model/user.model';
-import { PostService } from '../service/post.service';
-import { ImageService } from '../service/image.service';
-
+import { Post } from 'src/app/model/post.model';
+import { ImageService } from 'src/app/service/image.service';
+import { PostService } from 'src/app/service/post.service';
+import { UserService } from 'src/app/service/user.service';
 class ImageSnippet {
   constructor(public src: string, public file: File) { }
 }
-
-
 @Component({
-  selector: 'app-newspost',
-  templateUrl: './newspost.component.html',
-  styleUrls: ['./newspost.component.css']
+  selector: 'app-addpost',
+  templateUrl: './addpost.component.html',
+  styleUrls: ['./addpost.component.css']
 })
-export class NewspostComponent implements OnInit {
+export class AddpostComponent implements OnInit {
   isCreate = true;
   formTitle = 'Create New Post';
   formTitleEdit = 'Edit Post';
   post: Post = new Post(0, '', '', '', '', '', '', '');
   postList: Post[];
-  upostList: Post[];
-  user: User = new User(0, '', '', '', '', '', '');
-  userList: User[];
   role: string;
   username: string;
-  userpList: any;
-  keyword: string = '';
   selectedFile: ImageSnippet;
   constructor(private imageService: ImageService, private ps: PostService, private us: UserService, private http: HttpClient, private router: Router, private toastr: ToastrService) {
 
@@ -76,7 +67,7 @@ export class NewspostComponent implements OnInit {
         if (data != null) {
           this.toastr.success('success', 'Save success!');
         }
-        // this.router.navigate(['link']);
+        this.router.navigate(['/dashboard/post']);
       });
   }
 
@@ -86,7 +77,7 @@ export class NewspostComponent implements OnInit {
         if (data != null) {
           this.toastr.success('update', 'Update success!');
         }
-        // this.router.navigate(['/dasboard/post']);
+        this.router.navigate(['/dasboard/post']);
       });
   }
 
@@ -95,15 +86,6 @@ export class NewspostComponent implements OnInit {
       this.postList = data;
     })
   }
-  getUserPost(keyword) {
-    this.ps.getSearchList(keyword).subscribe(data => {
-      this.postList = data;
-    })
-  }
-  searchKeyword() {
-    this.getUserPost(this.keyword);
-  }
-
   edit(id) {
     this.http.get<Post>('http://localhost:8080/api/post/one/' + id)
       .subscribe(data => {
@@ -126,17 +108,4 @@ export class NewspostComponent implements OnInit {
       this.router.navigate([link + '/' + id]);
     }
   }
-  getUserList() {
-    this.http.get<User[]>('http://localhost:8080/api/user/list')
-      .subscribe(data => {
-        this.userList = data;
-      });
-  }
-  getUserpList() {
-    this.http.get<Post[]>('http://localhost:8080/api/post/list')
-      .subscribe(username => {
-        this.userpList = username;
-      });
-  }
-
 }

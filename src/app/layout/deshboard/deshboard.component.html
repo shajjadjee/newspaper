@@ -1,25 +1,31 @@
-<br/>
+<br />
 <div class="container">
+  <h1 class="h1 mb-3 mt-5">Welcome {{username}}!</h1>
   <div class="row">
+   
     <div class="col-sm-4">
+     
       <div class="card prod-p-card bg-c-red">
         <div class="card-body">
-          <div class="row align-items-center m-b-30">
-            <div class="col">
-              <h6 class="m-b-5 text-white">Total Post</h6>
-              <h3 class="m-b-0 f-w-700 text-white">{{tpost.totalpost}}</h3>
+          <a style="text-decoration: none;" routerLink="/dashboard/post">
+            <div class="row align-items-center m-b-30">
+              <div class="col">
+                <h6 class="m-b-5 text-white">Total Post</h6>
+                <h3 class="m-b-0 f-w-700 text-white">{{tpost.totalpost}}</h3>
+              </div>
+              <div class="col-auto">
+                <i class="fa fa-pencil-square-o text-c-red"></i>
+              </div>
             </div>
-            <div class="col-auto">
-              <i class="fa fa-pencil-square-o text-c-red"></i>
-            </div>
-          </div>
-          <p class="m-b-0 text-white"><span class="label label-danger m-r-10">+11%</span>From Previous Month</p>
+          </a>
+          <!-- <p class="m-b-0 text-white"><span class="label label-danger m-r-10">+11%</span>From Previous Month</p> -->
         </div>
       </div>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-4"  *ngIf="role==='admin'">
       <div class="card prod-p-card bg-c-blue">
         <div class="card-body">
+          <a style="text-decoration: none;" routerLink="/dashboard/user">
           <div class="row align-items-center m-b-30">
             <div class="col">
               <h6 class="m-b-5 text-white">Total User</h6>
@@ -29,25 +35,72 @@
               <i class="fa fa-user-circle-o text-c-red"></i>
             </div>
           </div>
-          <p class="m-b-0 text-white"><span class="label label-danger m-r-10">+11%</span>From Previous Month</p>
+        </a>
+          <!-- <p class="m-b-0 text-white"><span class="label label-danger m-r-10">+11%</span>From Previous Month</p> -->
         </div>
       </div>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-4" *ngIf="role==='admin'">
       <div class="card prod-p-card bg-c-green">
         <div class="card-body">
+          <a style="text-decoration: none;" routerLink="/dashboard/comments">
           <div class="row align-items-center m-b-30">
             <div class="col">
-              <h6 class="m-b-5 text-white">Total Post</h6>
-              <h3 class="m-b-0 f-w-700 text-white">0</h3>
+              <h6 class="m-b-5 text-white">Total Comment</h6>
+              <h3 class="m-b-0 f-w-700 text-white">{{tpost.totalcomment}}</h3>
             </div>
             <div class="col-auto">
-              <i class="fa fa-pencil-square-o text-c-red"></i>
+              <i class="fa fa-comments-o" aria-hidden="true"></i>
             </div>
           </div>
-          <p class="m-b-0 text-white"><span class="label label-danger m-r-10">+11%</span>From Previous Month</p>
+          </a>
+          <!-- <p class="m-b-0 text-white"><span class="label label-danger m-r-10">+11%</span>From Previous Month</p> -->
         </div>
       </div>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-12">
+
+      <table class="table">
+        <thead class="table">
+          <tr>
+
+            <th scope="row">TITLE</th>
+            <th scope="row">DATE</th>
+            <th scope="row">IMAGE</th>
+            <th scope="row">FEATURE</th>
+            <th scope="row">CATEGORIES</th>
+            <th scope="row">AUTHOR</th>
+            <th scope="row">ACTION</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of postList.slice().reverse()">
+
+            <td>{{ p.ptitle| slice:0:15 }}....</td>
+            <td>{{ p.pdate }}</td>
+            <td><img class="img-fluid" alt="{{ p.ptitle| slice:0:15 }}" src="{{ p.fimage }}" width="100px"
+                height="50px" /></td>
+            <td>{{ p.feature }}</td>
+
+            <td>{{ p.cname }}</td>
+            <td>{{ p.username }}</td>
+            <td *ngIf="role==='editor'">
+              <a class="btn btn-success" (click)="getNavigation('read', p.id)">view</a> |
+              <a class="btn btn-warning" (click)="edit(p.id)">Edit</a>
+              <!-- <a class="btn btn-danger" (click)="delete(p.id)">Delete</a> -->
+            </td>
+            <td *ngIf="role==='admin'">
+              <a class="btn btn-success" (click)="getNavigation('read', p.id)">view</a> |
+              <a class="btn btn-warning" (click)="edit(p.id)">Edit</a> |
+              <a class="btn btn-danger" (click)="delete(p.id)">Delete</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
     </div>
   </div>
 </div>

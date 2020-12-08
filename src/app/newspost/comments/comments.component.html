@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+    
+          <table class="table">
+            <thead class="table table-dark">
+              <tr>
+    
+                <th scope="row">POST</th>
+                <th scope="row">COMMENT</th>
+               <th scope="row">USERNAME</th>
+                <th scope="row">ACTION</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let p of commentList">
+                <td><a routerLink="/read/{{ p.pid}}"> {{ p.pid}}</a></td>
+                <td>{{ p.com }}</td>
+                <td>{{ p.username }}</td>
+                <td *ngIf="role==='admin'">
+                  <!-- <a class="btn btn-success" (click)="getNavigation('read', p.id)">view</a> | -->
+                  <a class="btn btn-warning" (click)="edit(p.id)">Edit</a> |
+                  <a class="btn btn-danger" (click)="delete(p.id)">Delete</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    
+        </div>
+      </div>
+</div>

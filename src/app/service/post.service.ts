@@ -7,7 +7,7 @@ import { Post } from '../model/post.model';
   providedIn: 'root'
 })
 export class PostService {
-  post: Post= new Post(0, '', '', '', 'slide1.jpg', '', '','');
+  post: Post= new Post(0, '', '', '', '', '', '','');
   postList: Post[];
   constructor(private http: HttpClient) { }
   getPostDetails(id){
@@ -20,12 +20,15 @@ export class PostService {
     return this.http.get<Post[]>('http://localhost:8080/api/post/list');
   }
   getSearchList(keyword): Observable<Post[]>{
-    return this.http.get<Post[]>('http://localhost:8080/api/post/search/?keyword='+keyword);
+    return this.http.get<Post[]>('http://localhost:8080/api/post/search/a?keyword='+keyword);
   }
   getUsercount(){
     return this.http.get('http://localhost:8080/api/post/dashboard');
   }
   getPostcount(){
+    return this.http.get('http://localhost:8080/api/post/dashboard');
+  }
+  getCommentcount(){
     return this.http.get('http://localhost:8080/api/post/dashboard');
   }
 }

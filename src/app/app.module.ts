@@ -25,6 +25,9 @@ import { FilterPipe } from './alert/filter.pipe';
 import { RightsidebarComponent } from './sidebar/rightsidebar/rightsidebar.component';
 import { FooterComponent } from './footer/footer.component';
 import { Userfilter } from './alert/userfilter.pipe';
+import { AddpostComponent } from './newspost/addpost/addpost.component';
+import { AdduserComponent } from './user/adduser/adduser.component';
+import { CommentsComponent } from './newspost/comments/comments.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +46,9 @@ import { Userfilter } from './alert/userfilter.pipe';
     RightsidebarComponent,
     FooterComponent,
     Userfilter,
+    AddpostComponent,
+    AdduserComponent,
+    CommentsComponent,
   ],
   imports: [
     BrowserModule,

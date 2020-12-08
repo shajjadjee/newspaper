@@ -1,7 +1,7 @@
 <app-header></app-header>
 <div class="container">
   <div class="row">
-    <div class="col-sm-3" *ngFor="let item of postcData">
+    <div class="col-sm-3" *ngFor="let item of postcData.slice().reverse()">
       <div class="card" style="width: 18rem;">
         <img class="card-img-top" src="{{ item.fimage }}" width="286px" height="190px" alt="{{ item.ptitle }}">
         <div class="card-body">

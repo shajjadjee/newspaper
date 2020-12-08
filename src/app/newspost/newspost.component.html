@@ -1,63 +1,13 @@
 <div class="container">
   <div class="row">
-    <!--start: create post -->
-    <div style="width: 100%" [hidden]="!isCreate">
-      <div class="col-sm-6">
-
-        <h1 class="h1 mb-3 mt-5">Welcome {{username}}!</h1>
-        <form #postForm="ngForm" (ngSubmit)="savePost()">
-          <!-- <input [(ngModel)]="post.username" value="{{username}}" type="text" class="form-control" name="username" id="username" /> -->
-
-          <div class="form-group">
-            <label for="title">Title</label>
-            <input [(ngModel)]="post.ptitle" type="text" class="form-control" name="title" id="title" />
-          </div>
-          <div class="form-group">
-            <label for="postarea">Description</label>
-            <textarea [(ngModel)]="post.pdesc" class="form-control" name="postarea" id="postarea"></textarea>
-          </div>
-          <div class="form-group">
-            <label for="status">Category</label>
-            <select class="form-control" name="status" [(ngModel)]="post.cname">
-              <option value="Bangladesh">Bangladesh</option>
-              <option value="International">International</option>
-              <option value="Business">Business</option>
-              <option value="Lifestyle">Lifestyle</option>
-              <option value="Politics">Politics</option>
-              <option value="Economics">Economics</option>
-              <option value="Sports">Sports</option>
-              <option value="Entertainment">Entertainment</option>
-              <option value="Openion">Openion</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="date">Date</label>
-            <input [(ngModel)]="post.pdate" type="date" class="form-control" name="date" id="date" />
-          </div>
-          <div class="form-group">
-            <label for="feature">Feature</label>
-            <input [(ngModel)]="post.feature" type="radio" value="Yes" name="feature" id="feature" />Yes
-            <input [(ngModel)]="post.feature" type="radio" value="No" name="feature" id="feature" />No
-          </div>
-
-          <div class="form-group">
-            <label for="image">Feature Image</label>
-            <input #imageInput type="file" accept="image/*" (change)="processFile(imageInput)" class="form-control" name="image" id="image" />
-          </div>
-          <div class="form-group">
-            <label for="username">Must Select *</label>
-            <input [(ngModel)]="post.username" class="bg-info" style="display: block" type="radio" value="{{username}}"
-              name="username" id="username" [checked]="true" /> Agree with Terms and condition.
-          </div>
-
-          <button class="btn btn-primary float-right" type="submit">
-            Save
-          </button>
-        </form>
-      </div>
+    <div class="col-sm-6">
+      <h2>Posts <a routerLink="/dashboard/addpost" class="btn btn-info">Add New</a></h2>
+    </div>
+    <div class="col-sm-6">
+      <input class="form-control float-right" type="text" (input)="searchKeyword()" name="keyword" placeholder="Search by Name"
+        aria-label="Recipents username" aria-describedby="basic-addon2" [(ngModel)]="keyword" />
     </div>
   </div>
-  <!--end: create post -->
   <!--start: update post -->
   <div class="row">
     <div class="col-sm-6">
@@ -87,13 +37,13 @@
           </div>
           <div class="form-group">
             <label for="date">Date</label>
-            <input [(ngModel)]="post.pdate" type="text" class="form-control" name="date" id="date" />
+            <input [(ngModel)]="post.pdate" type="date" class="form-control" name="date" id="date" />
           </div>
 
 
           <div class="form-group">
             <label for="image">Image</label>
-            <input [(ngModel)]="post.fimage" type="file" class="form-control" name="image" id="image" />
+            <input #imageInput type="file" accept="image/*" (change)="processFile(imageInput)" class="form-control" name="image" id="image" />
           </div>
           <button class="btn btn-primary float-right" type="submit">
             Update
@@ -106,35 +56,34 @@
 
   <div class="row">
     <div class="col-md-12">
-      <!-- <input class="form-control" type="text" (input)="searchKeyword()" name="keyword" placeholder="Search by Name"
-        aria-label="Recipents username" aria-describedby="basic-addon2" [(ngModel)]="keyword" /> -->
+
       <table class="table">
         <thead class="table table-dark">
           <tr>
-            <th scope="row">ID</th>
+
             <th scope="row">TITLE</th>
             <th scope="row">DATE</th>
             <th scope="row">IMAGE</th>
             <th scope="row">FEATURE</th>
-            <th scope="row">CATEGORY NAME</th>
-            <th scope="row"></th>
+            <th scope="row">CATEGORIES</th>
+            <th scope="row">AUTHOR</th>
             <th scope="row">ACTION</th>
           </tr>
         </thead>
         <tbody>
-          <tr  *ngFor="let p of postList | userfilter:{uname: 'jahid'}">
-            <td>{{ p.id }}</td>
+          <tr *ngFor="let p of postList">
+
             <td>{{ p.ptitle| slice:0:15 }}....</td>
             <td>{{ p.pdate }}</td>
-            <td><img class="img-fluid" alt="{{ p.ptitle| slice:0:15 }}" src="{{ p.fimage }}"
-                width="100px" height="50px" /></td>
+            <td><img class="img-fluid" alt="{{ p.ptitle| slice:0:15 }}" src="{{ p.fimage }}" width="100px"
+                height="50px" /></td>
             <td>{{ p.feature }}</td>
 
             <td>{{ p.cname }}</td>
-            <td></td>
-            <td *ngIf="role==='user'">
+            <td>{{ p.username }}</td>
+            <td *ngIf="role==='editor'">
               <a class="btn btn-success" (click)="getNavigation('read', p.id)">view</a> |
-              <a class="btn btn-warning" (click)="edit(p.id)">Edit</a> 
+              <a class="btn btn-warning" (click)="edit(p.id)">Edit</a>
               <!-- <a class="btn btn-danger" (click)="delete(p.id)">Delete</a> -->
             </td>
             <td *ngIf="role==='admin'">

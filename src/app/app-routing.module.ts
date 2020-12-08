@@ -7,6 +7,8 @@ import { HomeComponent } from './home/home.component';
 import { DeshboardComponent } from './layout/deshboard/deshboard.component';
 import { LayoutComponent } from './layout/layout.component';
 import { LoginComponent } from './login/login.component';
+import { AddpostComponent } from './newspost/addpost/addpost.component';
+import { CommentsComponent } from './newspost/comments/comments.component';
 import { NewspostComponent } from './newspost/newspost.component';
 import { ReadComponent } from './read/read.component';
 
@@ -47,10 +49,25 @@ const routes: Routes = [
       {
         path: '**', redirectTo: 'dashboard'
       },
+      {
+        path: 'addpost',
+        component: AddpostComponent
+      },
+      {
+        path: 'comments',
+        component: CommentsComponent
+      },
 
       {
         path: 'post',
-        component: NewspostComponent
+        component: NewspostComponent,
+        children: [
+          {
+            path: '',
+            component: NewspostComponent
+          },
+          
+        ],
       },
       {
         path: 'user',
