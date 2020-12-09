@@ -67,6 +67,50 @@
        More News</a></div>
     </div>
   </div>
+  <div class="row">
+    <div class="col-sm-8">
+      
+      <h4 class="catagory_title1"><a class="nav-link" routerLink="/cat/Lifestyle"><i class="fa fa-newspaper-o"
+            aria-hidden="true"></i> Lifestyle</a></h4>
+            <div class="row">
+              <div class="col-sm-6">
+      <div class="leadnews" *ngFor="let item of postList | filter:{cname: 'Lifestyle'} | slice:0:1 ">
+        <img alt="{{item.ptitle}}" src="{{ item.fimage }}" width="350px" height="233px" />
+        <h4 class="heading_03"><a (click)="getNavigation('read', item.id)">{{ item.ptitle | slice:0:95  }}....</a></h4>
+        <p>{{ item.pdesc | slice:0:95  }}</p>
+        <div style="float: right;"><a class="morenews" (click)="getNavigation('read', item.id)"><i class="fa fa-hand-o-right" aria-hidden="true"></i>
+          Read More</a>
+        </div>
+      </div>
+     </div>
+      <div class="col-sm-6">
+        <div class="images_title" *ngFor="let item of postList | filter:{cname: 'Lifestyle'} | slice:1:5">
+          <img class="img-fluid" alt={{item.ptitle}} src="{{ item.fimage }}" width="400px" height="225px" />
+          <h4 class="heading_03"><a (click)="getNavigation('read', item.id)">{{ item.ptitle | slice:0:39  }}....</a>
+          </h4>
+        </div>
+        <div style="float: right;"><a class="morenews" href="/cat/Lifestyle"><i class="fa fa-hand-o-right" aria-hidden="true"></i>
+         More News</a></div>
+      </div>
+    </div>
+    
+  </div>
+  <div class="col-sm-4">
+    <h4 class="catagory_title1"><a class="nav-link" routerLink="/cat/Politics"><i class="fa fa-newspaper-o"
+          aria-hidden="true"></i> Politics</a></h4>
+    <div class="leadnews" *ngFor="let item of postList | filter:{cname: 'Politics'} | slice:0:1 ">
+      <img alt="{{item.ptitle}}" src="{{ item.fimage }}" width="350px" height="233px" />
+      <h4 class="heading_03"><a (click)="getNavigation('read', item.id)">{{ item.ptitle | slice:0:39  }}....</a></h4>
+    </div>
+    <div class="images_title" *ngFor="let item of postList | filter:{cname: 'Politics'} | slice:1:2">
+        <img class="img-fluid" alt={{item.ptitle}} src="{{ item.fimage }}" width="400px" height="225px" />
+        <h4 class="heading_03"><a (click)="getNavigation('read', item.id)">{{ item.ptitle | slice:0:39  }}....</a>
+        </h4>
+    </div>
+    <div style="float: right;"><a class="morenews" href="/cat/Politics"><i class="fa fa-hand-o-right" aria-hidden="true"></i>
+     More News</a></div>
+  </div>
+  </div>
   <!-- <div *ngIf="item.cname === 'International'"></div> -->
 </div>
 <app-footer></app-footer>

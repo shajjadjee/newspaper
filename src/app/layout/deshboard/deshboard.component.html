@@ -73,11 +73,10 @@
             <th scope="row">FEATURE</th>
             <th scope="row">CATEGORIES</th>
             <th scope="row">AUTHOR</th>
-            <th scope="row">ACTION</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let p of postList.slice().reverse()">
+          <tr *ngFor="let p of postList.slice().reverse() | slice:0:10">
 
             <td>{{ p.ptitle| slice:0:15 }}....</td>
             <td>{{ p.pdate }}</td>
@@ -87,16 +86,6 @@
 
             <td>{{ p.cname }}</td>
             <td>{{ p.username }}</td>
-            <td *ngIf="role==='editor'">
-              <a class="btn btn-success" (click)="getNavigation('read', p.id)">view</a> |
-              <a class="btn btn-warning" (click)="edit(p.id)">Edit</a>
-              <!-- <a class="btn btn-danger" (click)="delete(p.id)">Delete</a> -->
-            </td>
-            <td *ngIf="role==='admin'">
-              <a class="btn btn-success" (click)="getNavigation('read', p.id)">view</a> |
-              <a class="btn btn-warning" (click)="edit(p.id)">Edit</a> |
-              <a class="btn btn-danger" (click)="delete(p.id)">Delete</a>
-            </td>
           </tr>
         </tbody>
       </table>

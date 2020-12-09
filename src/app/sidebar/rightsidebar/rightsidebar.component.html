@@ -2,7 +2,7 @@
     aria-hidden="true"></i> Latest news</h4>
     <div class="images_title" *ngFor="let item of postList.slice().reverse() | slice:0:5 ">
         <img class="img-fluid" alt={{item.ptitle}} src="{{ item.fimage }}" width="400px" height="225px" />
-        <h4 class="heading_03"><a (click)="getNavigation('read', item.id)">{{ item.ptitle | slice:0:39  }}....</a>
+        <h4 class="heading_03"><a href="/read/{{item.id}}">{{ item.ptitle | slice:0:39  }}....</a>
         </h4>
     </div>
     <!-- <div style="float: right;"><a class="morenews" href="/cat/Bangladesh"><i class="fa fa-hand-o-right" aria-hidden="true"></i>

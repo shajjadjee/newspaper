@@ -33,7 +33,12 @@
               <div>
                 <h6 class="my-0">Category</h6>
               </div>
-                <a  class="text-muted" style="color: crimson !important" href="/cat/{{ postData.cname }}">{{ postData.cname }}</a>
+              <a
+                class="text-muted"
+                style="color: crimson !important"
+                href="/cat/{{ postData.cname }}"
+                >{{ postData.cname }}</a
+              >
             </li>
           </ul>
           <button class="btn btn-warning" (click)="navigation('')">
@@ -41,20 +46,27 @@
           </button>
         </div>
       </div>
-      
     </div>
-    <div class="col-sm-4" style="margin-top: 6rem;">
+    <div class="col-sm-4" style="margin-top: 6rem">
       <app-rightsidebar></app-rightsidebar>
     </div>
-<div class="row">
- <div class="col-sm-2" *ngFor="let item of postList; index as i">
-        <img alt="{{ item.ptitle}}" src="{{ item.fimage }}" width="165px" height="95px"/>
-        <h4 class="heading_03" style="font-size: 18px;">
-          <a href="/read/{{ item.id }}">{{ item.ptitle | slice:0:15}}...</a>
+    <div class="row">
+      <div
+        class="col-sm-2"
+        *ngFor="let item of postList.slice().reverse() | slice: 0:12"
+      >
+        <img
+          alt="{{ item.ptitle }}"
+          src="{{ item.fimage }}"
+          width="165px"
+          height="95px"
+        />
+        <h4 class="heading_03" style="font-size: 18px">
+          <a href="/read/{{ item.id }}">{{ item.ptitle | slice: 0:15 }}...</a>
         </h4>
       </div>
       <div class="col-sm-4"></div>
-</div>
+    </div>
     <!-- <div class="col-sm-8">
       <div class="product-detail">
         <h5 class="product-head">News Details</h5>
@@ -79,4 +91,32 @@
       </div>
     </div> -->
   </div>
+  <div class="row">
+    <div class="col-sm-8">
+      <form #CommentForm="ngForm" (ngSubmit)="saveComment()">
+        <!-- <input value="{{username}}" type="text" class="form-control" name="username" id="username" /> -->
+
+        <div class="form-group">
+          <input [(ngModel)]="comments.pid"  type="text" disabled name="pid" />
+        </div>
+        <div class="form-group">
+          <input [(ngModel)]="comments.username" (click)="proccessname" type="text" name="username"/>
+        </div>
+        <div class="form-group">
+          <label for="postarea">Comments</label>
+          <textarea [(ngModel)]="comments.com" class="form-control" name="postarea" id="postarea"></textarea>
+        </div>
+        <!-- <div class="form-group">
+          <label for="username">Must Select <span style="color: red;">*</span></label>
+          <input [(ngModel)]="post.username" class="bg-info" style="display: block" type="radio" value="{{username}}"
+            name="username" id="username" [checked]="true" /> Agree with Terms and condition.
+        </div> -->
+
+        <button class="btn btn-primary float-right" type="submit">
+          Save
+        </button>
+      </form>
+    </div>
+  </div>
 </div>
+<app-footer></app-footer>
