@@ -2,6 +2,7 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-8">
+      {{username}}
       <h2>{{ postData.ptitle }}</h2>
       <span
         ><i class="fa fa-user text-secondary"></i> {{ postData.username }}</span
@@ -97,10 +98,23 @@
         <!-- <input value="{{username}}" type="text" class="form-control" name="username" id="username" /> -->
 
         <div class="form-group">
-          <input [(ngModel)]="comments.pid"  type="text" disabled name="pid" />
+          {{postData.id}}
+          {{ postData.username }}
+          <!-- <input [(ngModel)]="comments.pid"  type="text" disabled name="pid" /> -->
+          <input id="pid" type="text" class="form-control" 
+        [(ngModel)]="comments.pid" name="pid" 
+        required #username="ngModel" 
+        placeholder="{{postData.id}}" 
+        ngValue="postData.id" />
         </div>
         <div class="form-group">
-          <input [(ngModel)]="comments.username" (click)="proccessname" type="text" name="username"/>
+          {{username}}
+          <!-- <input [(ngModel)]="comments.username" (click)="proccessname" type="text" name="username"/> -->
+          <input id="username" type="text" class="form-control" 
+        [(ngModel)]="comments.username" name="username" 
+        required #username="ngModel" 
+        placeholder="{{ postData.username }}" 
+        ngValue="postData.username" />
         </div>
         <div class="form-group">
           <label for="postarea">Comments</label>

@@ -20,7 +20,7 @@ export class ReadComponent implements OnInit {
   postList: Post[];
   comments: Comments = new Comments(0, 0, '', '');
   commentList: Comments[];
-  username: string;
+  usern: string;
   constructor(private cs: CommentsService, private ps: PostService, private http: HttpClient, private router: Router, private actRoute: ActivatedRoute, private toastr: ToastrService) { }
 
   ngOnInit(): void {
@@ -28,7 +28,10 @@ export class ReadComponent implements OnInit {
     this.postID = this.actRoute.snapshot.params['id'];
     this.loadPostDetails(this.postID);
     this.getPostList();
-    this.username = this.readUsername('auth_username');
+    this.usern = this.readUsername('auth_username');
+  }
+  readUsername(key: string): string {
+    return localStorage.getItem(key);
   }
   // loadPostDetails(postID){
   //   this.ps.getPostDetails(postID).subscribe(data=>)
@@ -61,11 +64,9 @@ export class ReadComponent implements OnInit {
       this.postList = data;
     })
   }
-  readUsername(key: string): string {
-    return localStorage.getItem(key);
-  }
-  proccessname() {
-    return this.username;
-  }
+
+  // proccessname() {
+  //   return this.usern;
+  // }
 
 }
